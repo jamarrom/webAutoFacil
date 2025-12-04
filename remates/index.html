@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/app.css" />
+    <title>Remates - AutoFácil</title>
+    <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <h1 class="header-logo">
+                <img src="../img/logo.png" alt="AutoFácil - Crédito Inmediato">
+                <span>AutoFácil - Crédito Inmediato</span>
+            </h1>
+
+            <!-- Menú -->
+            <nav class="header-nav">
+                <ul class="nav-list">
+                    <li><a href="../" class="nav-link">Inicio</a></li>
+                    <li><a href="/todos-los-autos" class="nav-link">Todos los autos</a></li>
+                    <li><a href="/remates" class="nav-link active">Remates</a></li>
+                    <li><a href="/nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="/contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Íconos sociales + botón -->
+            <div class="header-right">
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><img src="../img/icons/facebook.svg" alt=""></a>
+                    <a href="#" aria-label="Instagram"><img src="../img/icons/instagram.svg" alt=""></a>
+                </div>
+                <a href="/contacto" class="btn-demo hover-bright">Agendar Demo</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="app">
+
+        <!-- HERO REMATES -->
+        <div class="app-all-cars app-all-cars-remate">
+            <div class="app-container1Todos">
+                <h1 class="app-titleTodos">Zona de Remates</h1>
+                <p class="app-text-paragraph1Todos">
+                    Aprovecha los mejores precios en estos modelos exclusivos
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDER GRANDE (como tu imagen exacta) -->
+        <div class="remate-full-slider">
+            <div class="remate-slider-track">
+                <!-- Slide 1 -->
+                <div class="remate-slide">
+                    <img src="../img/sliderRemate1.jpg" alt="Audi RS6 Avant 2023">
+                    <div class="remate-badge">Remate</div>
+                    <div class="remate-content">
+                        <h2>Audi RS6 Avant</h2>
+                        <p class="year">2023</p>
+                        <div class="price">$118,000</div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 - Interior -->
+                <div class="remate-slide">
+                    <img src="../img/sliderRemate1.jpg" alt="Interior Audi RS6 Avant">
+                    <div class="remate-badge">Remate</div>
+                    <div class="remate-content">
+                        <h2>Audi RS6 Avant</h2>
+                        <p class="year">2023</p>
+                        <div class="price">$118,000</div>
+                    </div>
+                </div>
+
+                <!-- Agrega más slides aquí si quieres -->
+            </div>
+
+            <button class="remate-prev"><</button>
+            <button class="remate-next">></button>
+            <div class="remate-dots"></div>
+        </div>
+
+        <!-- INVENTARIO CON FILTROS -->
+        <div class="app-section2">
+            <div class="inventory-wrapper">
+                <!-- FILTROS (sidebar) -->
+                <aside class="filters-sidebar">
+                    <div class="filters-header">
+                        <h3 class="filters-title">Filtros</h3>
+                        <button class="filters-reset">Restablecer</button>
+                    </div>
+
+                    <div class="active-filters"></div>
+
+                    <!-- Año -->
+                    <div class="filter-group">
+                        <label class="filter-label">Rango de Año</label>
+                        <div class="range-slider-container">
+                            <div class="range-slider-track">
+                                <div class="range-slider-fill"></div>
+                            </div>
+                            <input type="range" min="2020" max="2025" value="2020" class="range-min">
+                            <input type="range" min="2020" max="2025" value="2025" class="range-max">
+                        </div>
+                        <div class="range-values">
+                            <span class="range-value-display">2020</span>
+                            <span class="range-value-display">2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Precio -->
+                    <div class="filter-group">
+                        <label class="filter-label">Rango de Precio</label>
+                        <div class="range-slider-container">
+                            <div class="range-slider-track">
+                                <div class="range-slider-fill"></div>
+                            </div>
+                            <input type="range" min="0" max="300000" step="1000" value="0" class="range-min">
+                            <input type="range" min="0" max="300000" step="1000" value="300000" class="range-max">
+                        </div>
+                        <div class="range-values">
+                            <span class="range-value-display">$0</span>
+                            <span class="range-value-display">$300,000</span>
+                        </div>
+                    </div>
+
+                    <!-- Marca -->
+                    <div class="filter-group">
+                        <label class="filter-label">Marca</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="brand" value="BMW"> BMW</label>
+                            <label><input type="checkbox" name="brand" value="Mercedes-Benz"> Mercedes-Benz</label>
+                            <label><input type="checkbox" name="brand" value="Porsche"> Porsche</label>
+                            <label><input type="checkbox" name="brand" value="Tesla"> Tesla</label>
+                            <label><input type="checkbox" name="brand" value="Audi"> Audi</label>
+                            <label><input type="checkbox" name="brand" value="Lexus"> Lexus</label>
+                        </div>
+                    </div>
+
+                    <!-- Motor -->
+                    <div class="filter-group">
+                        <label class="filter-label">Tipo de Motor</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="fuel" value="Gasolina"> Gasolina</label>
+                            <label><input type="checkbox" name="fuel" value="Diésel"> Diésel</label>
+                            <label><input type="checkbox" name="fuel" value="Eléctrico"> Eléctrico</label>
+                            <label><input type="checkbox" name="fuel" value="Híbrido"> Híbrido</label>
+                        </div>
+                    </div>
+
+                    <!-- Tipo -->
+                    <div class="filter-group">
+                        <label class="filter-label">Tipo de Vehículo</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="type" value="Sedán"> Sedán</label>
+                            <label><input type="checkbox" name="type" value="SUV"> SUV</label>
+                            <label><input type="checkbox" name="type" value="Cupé"> Cupé</label>
+                            <label><input type="checkbox" name="type" value="Hatchback"> Hatchback</label>
+                            <label><input type="checkbox" name="type" value="Camioneta"> Camioneta</label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- GRID DE AUTOS -->
+                <div class="inventory-main">
+                    <div class="inventory-header">
+                        <p class="inventory-count">Mostrando <span>9</span> vehículos</p>
+                        <div class="sort-by">
+                            <label>Ordenar por:</label>
+                            <select class="sort-select">
+                                <option value="featured">Destacados</option>
+                                <option value="price-asc">Precio: menor a mayor</option>
+                                <option value="price-desc">Precio: mayor a menor</option>
+                                <option value="year-desc">Año: más reciente</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="inventory-grid">
+
+							<!-- AUTO 1 -->
+							<div class="car-card"
+								data-brand="BMW"
+								data-year="2024"
+								data-price="125000"
+								data-fuel="Gasolina"
+								data-type="Sedán"
+							>
+								<div class="car-image" style="background-image: url('../assets/card-car-card/card-car1.png')">
+									<span class="badge">Destacado</span>
+								</div>
+								<div class="car-info">
+									<h3>BMW M5 Competition</h3>
+									<p class="year">2024</p>
+									
+									<div class="specs">
+										<div class="spec-item">
+											<object data="./../img/Icon-km.svg" type="image/svg+xml" class="spec-icon"></object>
+											<span>1,200 km</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-gasolina.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Gasolina</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-automatica.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Automática</span>
+										</div>
+									</div>
+									<div class="price-action">
+										<strong>$125,000</strong>
+										<button class="btn">Ver Detalles</button>
+									</div>
+								</div>
+							</div>
+
+							<!-- AUTO 2 -->
+							<div class="car-card"
+								data-brand="Mercedes-Benz"
+								data-year="2023"
+								data-price="89500"
+								data-fuel="Híbrido"
+								data-type="SUV"
+							>
+								<div class="car-image" style="background-image: url('../assets/card-car-card/card-car.png')">
+									<span class="badge">Destacado</span>
+								</div>
+								<div class="car-info">
+									<h3>Mercedes-Benz GLE 450</h3>
+									<p class="year">2023</p>
+									<div class="specs">
+										<div class="spec-item">
+											<object data="./../img/Icon-km.svg" type="image/svg+xml" class="spec-icon"></object>
+											<span>8,500 km</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-hibrido.svg" type="image/svg+xml" class="spec-icon"></object>
+											<span>Híbrido</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-automatica.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Automática</span>
+										</div>
+									</div>
+									<div class="price-action">
+									<strong>$89,500</strong>
+									<button class="btn">Ver Detalles</button>
+									</div>
+								</div>
+							</div>
+
+							<!-- AUTO 3 -->
+							<div class="car-card"
+								data-brand="Porsche"
+								data-year="2024"
+								data-price="245000"
+								data-fuel="Gasolina"
+								data-type="Cupé"
+							>
+								<div class="car-image" style="background-image: url('../assets/card-car-card/card-car2.png')">
+									<span class="badge">Destacado</span>
+								</div>
+								<div class="car-info">
+									<h3>Porsche 911 Turbo S</h3>
+									<p class="year">2024</p>
+									<div class="specs">
+										<div class="spec-item">
+											<object data="./../img/Icon-km.svg" type="image/svg+xml" class="spec-icon"></object>
+											<span>500 km</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-gasolina.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Gasolina</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-automatica.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Automática</span>
+										</div>
+									</div>
+									<div class="price-action">
+										<strong>$245,000</strong>
+										<button class="btn">Ver Detalles</button>
+									</div>
+								</div>
+							</div>
+
+							<!-- AUTO 4 -->
+							<div class="car-card"
+								data-brand="Tesla"
+								data-year="2024"
+								data-price="135000"
+								data-fuel="Eléctrico"
+								data-type="Sedán"
+							>
+								<div class="car-image" style="background-image: url('../assets/card-car-card/card-car4.png')">
+									<span class="badge">Destacado</span>
+								</div>
+								<div class="car-info">
+									<h3>Tesla Model S Plaid</h3>
+									<p class="year">2024</p>
+									<div class="specs">
+										<div class="spec-item">
+											<object data="./../img/Icon-km.svg" type="image/svg+xml" class="spec-icon"></object>
+											<span>2,100 km</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-electrico.svg" type="image/svg+xml" class="spec-icon"></object>
+											<span>Eléctrico</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-automatica.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Automática</span>
+										</div>
+									</div>
+									<div class="price-action">
+										<strong>$135,000</strong>
+										<button class="btn">Ver Detalles</button>
+									</div>
+								</div>
+							</div>
+
+							<!-- AUTO 5 -->
+							<div class="car-card"
+								data-brand="Audi"
+								data-year="2023"
+								data-price="118000"
+								data-fuel="Gasolina"
+								data-type="Camioneta"
+							>
+								<div class="car-image" style="background-image: url('../assets/card-car-card/card-car.png')">
+									<span class="badge">Destacado</span>
+								</div>
+								<div class="car-info">
+									<h3>Audi RS6 Avant</h3>
+									<p class="year">2023</p>
+									<div class="specs">
+										<div class="spec-item">
+											<object data="./../img/Icon-km.svg" type="image/svg+xml" class="spec-icon"></object>
+											<span>5,600 km</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-gasolina.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Gasolina</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-automatica.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Automática</span>
+										</div>
+									</div>
+									<div class="price-action">
+										<strong>$118,000</strong>
+										<button class="btn">Ver Detalles</button>
+									</div>
+								</div>
+							</div>
+
+							<!-- AUTO 6 -->
+							<div class="car-card"
+								data-brand="Lexus"
+								data-year="2023"
+								data-price="98500"
+								data-fuel="Gasolina"
+								data-type="Cupé"
+								
+							>
+								<div class="car-image" style="background-image: url('../assets/card-car-card/card-car2.png')">
+									<span class="badge">Destacado</span>
+								</div>
+								<div class="car-info">
+									<h3>Lexus LC 500</h3>
+									<p class="year">2023</p>
+									<div class="specs">
+										<div class="spec-item">
+											<object data="./../img/Icon-km.svg" type="image/svg+xml" class="spec-icon"></object>
+											<span>3,200 km</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-gasolina.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Gasolina</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-automatica.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Automática</span>
+										</div>
+									</div>
+									<div class="price-action">
+										<strong>$98,500</strong>
+										<button class="btn">Ver Detalles</button>
+									</div>
+								</div>
+							</div>
+
+
+
+
+
+
+							<!-- AUTO 7 -->
+							<div class="car-card"
+								data-brand="BMW"
+								data-year="2024"
+								data-price="115000"
+								data-fuel="Gasolina"
+								data-type="SUV"
+								
+							>
+								<div class="car-image" style="background-image: url('../assets/car7.png')">
+									
+								</div>
+								<div class="car-info">
+									<h3>BMW X7 M50i</h3>
+									<p class="year">2024</p>
+									<div class="specs">
+										<div class="spec-item">
+											<object data="./../img/Icon-km.svg" type="image/svg+xml" class="spec-icon"></object>
+											<span>1,800 km</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-gasolina.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Gasolina</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-automatica.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Automática</span>
+										</div>
+									</div>
+									<div class="price-action">
+										<strong>$115,000</strong>
+										<button class="btn">Ver Detalles</button>
+									</div>
+								</div>
+							</div>
+
+
+							<!-- AUTO 8 -->
+							<div class="car-card"
+								data-brand="Mercedes-Benz"
+								data-year="2024"
+								data-price="165000"
+								data-fuel="Gasolina"
+								data-type="Cupé"
+								
+							>
+								<div class="car-image" style="background-image: url('../assets/car8.png')">
+									
+								</div>
+								<div class="car-info">
+									<h3>Mercedes-Benz AMG GT</h3>
+									<p class="year">2024</p>
+									<div class="specs">
+										<div class="spec-item">
+											<object data="./../img/Icon-km.svg" type="image/svg+xml" class="spec-icon"></object>
+											<span>900 km</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-gasolina.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Gasolina</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-automatica.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Automática</span>
+										</div>
+									</div>
+									<div class="price-action">
+										<strong>$165,000</strong>
+										<button class="btn">Ver Detalles</button>
+									</div>
+								</div>
+							</div>
+
+
+							<!-- AUTO 9 -->
+							<div class="car-card"
+								data-brand="Audi"
+								data-year="2024"
+								data-price="145000"
+								data-fuel="Eléctrico"
+								data-type="Sedán"
+							>
+								<div class="car-image" style="background-image: url('../assets/car9.png')">
+									
+								</div>
+								<div class="car-info">
+									<h3>Audi e-tron GT</h3>
+									<p class="year">2024</p>
+									<div class="specs">
+										<div class="spec-item">
+											<object data="./../img/Icon-km.svg" type="image/svg+xml" class="spec-icon"></object>
+											<span>1,500 km</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-electrico.svg" type="image/svg+xml" class="spec-icon"></object>
+											<span>Eléctrico</span>
+										</div>
+										<div class="spec-item">
+											<object data="../img/Icon-automatica.png" type="image/svg+xml" class="spec-icon"></object>
+											<span>Automática</span>
+										</div>
+									</div>
+									<div class="price-action">
+										<strong>$145,000</strong>
+										<button class="btn">Ver Detalles</button>
+									</div>
+								</div>
+							</div>
+						</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-footer">
+				<div class="footer-main">
+					<!-- Columna 1: Logo y descripción -->
+					<div class="footer-brand">
+						<img src="./../img/logoFooter.png" class="footer-logo" alt="AutoFácil Logo" />
+						<p class="footer-description">
+							Tu socio confiable para vehículos premium. Calidad, confiabilidad y servicio excepcional.
+						</p>
+
+						<!-- ICONOS DE REDES SOCIALES -->
+						<div class="footer-social">
+							<a href="https://facebook.com/autofacil" target="_blank" class="social-link" aria-label="Síguenos en Facebook">
+							<img src="../img/icons/facebook.svg" alt="Facebook" class="social-icon" />
+							</a>
+							<a href="https://instagram.com/autofacil" target="_blank" class="social-link" aria-label="Síguenos en Instagram">
+							<img src="../img/icons/instagram.svg" alt="Instagram" class="social-icon" />
+							</a>
+							<a href="https://twitter.com/autofacil" target="_blank" class="social-link" aria-label="Síguenos en Twitter">
+							<img src="../img/icons/twitter.svg" alt="Twitter" class="social-icon" />
+							</a>
+						</div>
+					</div>
+
+					<!-- Columna 2: Enlaces Rápidos -->
+					<div class="footer-column">
+					<h3 class="footer-heading">Enlaces Rápidos</h3>
+					<ul class="footer-list">
+						<li><a href="../index.html">Inicio</a></li>
+						<li><a href="#">Todos los Autos</a></li>
+						<li><a href="/nosotros">Nosotros</a></li>
+						<li><a href="/contacto">Contacto</a></li>
+					</ul>
+					</div>
+
+					<!-- Columna 3: Servicios -->
+					<div class="footer-column">
+					<h3 class="footer-heading">Servicios</h3>
+					<ul class="footer-list">
+						<li><a href="#">Comprar un Auto</a></li>
+						<li><a href="#">Vender tu Auto</a></li>
+						<li><a href="#">Opciones de Financiamiento</a></li>
+						<li><a href="#">Valuación de Permuta</a></li>
+					</ul>
+					</div>
+
+					<!-- Columna 4: Contáctanos -->
+					<div class="footer-column">
+					<h3 class="footer-heading">Contáctanos</h3>
+					<ul class="footer-contact">
+						<li>
+							<object data="../assets/app-icon.svg" type="image/svg+xml"></object>
+							<span>Av. Principal 123, Ciudad de México, CDMX 01234</span>
+						</li>
+						<li>
+							<object data="../assets/list-item/list-item-icon1.svg" type="image/svg+xml"></object>
+							<span>+52 (55) 1234-5678</span>
+						</li>
+						<li>
+							<a href="mailto: info@autofacil.com.mx">
+								<object data="../assets/list-item/list-item-icon2.svg" type="image/svg+xml"></object>
+								<span>info@autofacil.com.mx</span>
+							</a>
+						</li>
+					</ul>
+					</div>
+				</div>
+
+				<!-- Línea divisoria y copyright -->
+				<div class="footer-bottom">
+					<p class="footer-copyright">
+					© 2025 AutoFácil - Crédito Inmediato. Todos los derechos reservados.
+					</p>
+					<div class="footer-links">
+					<a href="#" class="footer-link">Política de Privacidad</a>
+					<span class="footer-separator">•</span>
+					<a href="#" class="footer-link">Términos y Condiciones</a>
+					</div>
+				</div>
+			</div>
+
+    <!-- SCRIPT -->
+    <script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const cars = document.querySelectorAll('.car-card');
+				const grid = document.querySelector('.inventory-grid');
+				const countEl = document.querySelector('.inventory-count');
+				const resetBtn = document.querySelector('.filters-reset');
+				const sortSelect = document.querySelector('.sort-select');
+				const activeFiltersContainer = document.querySelector('.active-filters');
+
+				// Sliders de rango
+				const yearMin = document.querySelector('.range-min');
+				const yearMax = document.querySelector('.range-max');
+				const priceMin = document.querySelectorAll('.range-min')[1];
+				const priceMax = document.querySelectorAll('.range-max')[1];
+
+				const yearValMin = document.querySelectorAll('.range-values span')[0];
+				const yearValMax = document.querySelectorAll('.range-values span')[1];
+				const priceValMin = document.querySelectorAll('.range-values span')[2];
+				const priceValMax = document.querySelectorAll('.range-values span')[3];
+
+				const yearFill = document.querySelector('.range-slider-fill');
+				const priceFill = document.querySelectorAll('.range-slider-fill')[1];
+
+				function updateSliderFill(min, max, fill) {
+					const minVal = parseInt(min.value);
+					const maxVal = parseInt(max.value);
+					const minPercent = ((minVal - min.min) / (min.max - min.min)) * 100;
+					const maxPercent = ((maxVal - max.min) / (max.max - max.min)) * 100;
+					fill.style.left = `${minPercent}%`;
+					fill.style.width = `${maxPercent - minPercent}%`;
+				}
+
+				function updateYear() {
+					yearValMin.textContent = yearMin.value;
+					yearValMax.textContent = yearMax.value;
+					updateSliderFill(yearMin, yearMax, yearFill);
+				}
+
+				function updatePrice() {
+					priceValMin.textContent = `$${Number(priceMin.value).toLocaleString()}`;
+					priceValMax.textContent = `$${Number(priceMax.value).toLocaleString()}`;
+					updateSliderFill(priceMin, priceMax, priceFill);
+				}
+
+				yearMin.addEventListener('input', updateYear);
+				yearMax.addEventListener('input', updateYear);
+				priceMin.addEventListener('input', updatePrice);
+				priceMax.addEventListener('input', updatePrice);
+
+				updateYear();
+				updatePrice();
+
+				function sortCars() {
+					const sortValue = sortSelect.value;
+					const carArray = Array.from(cars);
+					carArray.sort((a, b) => {
+						const priceA = parseInt(a.dataset.price);
+						const priceB = parseInt(b.dataset.price);
+						const yearA = parseInt(a.dataset.year);
+						const yearB = parseInt(b.dataset.year);
+						switch (sortValue) {
+							case 'price-asc': return priceA - priceB;
+							case 'price-desc': return priceB - priceA;
+							case 'year-desc': return yearB - yearA;
+							default: return carArray.indexOf(a) - carArray.indexOf(b);
+						}
+					});
+					grid.innerHTML = '';
+					carArray.forEach(car => grid.appendChild(car));
+				}
+
+				function filterCars() {
+					let visible = 0;
+					const minYear = parseInt(yearMin.value);
+					const maxYear = parseInt(yearMax.value);
+					const minPrice = parseInt(priceMin.value);
+					const maxPrice = parseInt(priceMax.value);
+					const brands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(i => i.value);
+					const fuels = Array.from(document.querySelectorAll('input[name="fuel"]:checked')).map(i => i.value);
+					const types = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(i => i.value);
+
+					cars.forEach(car => {
+						const d = car.dataset;
+						const matchBrand = brands.length === 0 || brands.includes(d.brand);
+						const matchFuel = fuels.length === 0 || fuels.includes(d.fuel);
+						const matchType = types.length === 0 || types.includes(d.type);
+						const matchYear = parseInt(d.year) >= minYear && parseInt(d.year) <= maxYear;
+						const matchPrice = parseInt(d.price) >= minPrice && parseInt(d.price) <= maxPrice;
+
+						if (matchBrand && matchFuel && matchType && matchYear && matchPrice) {
+							car.style.display = '';
+							visible++;
+						} else {
+							car.style.display = 'none';
+						}
+					});
+
+					countEl.textContent = `Mostrando ${visible} de ${cars.length} vehículos`;
+					updateActiveFilters();
+				}
+
+				function updateActiveFilters() {
+					activeFiltersContainer.innerHTML = '';
+					if (yearMin.value != 2020 || yearMax.value != 2024) {
+						activeFiltersContainer.appendChild(createTag(`Año: ${yearMin.value}-${yearMax.value}`, 'year'));
+					}
+					if (priceMin.value != 0 || priceMax.value != 300000) {
+						activeFiltersContainer.appendChild(createTag(`$${Number(priceMin.value).toLocaleString()} - $${Number(priceMax.value).toLocaleString()}`, 'price'));
+					}
+					const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(i => i.value);
+					if (selectedBrands.length > 0) activeFiltersContainer.appendChild(createTag(`Marcas: ${selectedBrands.join(', ')}`, 'brand'));
+					const selectedFuels = Array.from(document.querySelectorAll('input[name="fuel"]:checked')).map(i => i.value);
+					if (selectedFuels.length > 0) activeFiltersContainer.appendChild(createTag(`Motor: ${selectedFuels.join(', ')}`, 'fuel'));
+					const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(i => i.value);
+					if (selectedTypes.length > 0) activeFiltersContainer.appendChild(createTag(`Tipo: ${selectedTypes.join(', ')}`, 'type'));
+
+					document.querySelectorAll('.active-filter-tag button').forEach(btn => {
+						btn.addEventListener('click', () => clearFilter(btn.dataset.filter));
+					});
+				}
+
+				function createTag(text, type) {
+					const div = document.createElement('div');
+					div.className = 'active-filter-tag';
+					div.innerHTML = `${text} <button data-filter="${type}">×</button>`;
+					return div;
+				}
+
+				function clearFilter(type) {
+					switch (type) {
+						case 'year': yearMin.value = 2020; yearMax.value = 2024; updateYear(); break;
+						case 'price': priceMin.value = 0; priceMax.value = 300000; updatePrice(); break;
+						case 'brand': document.querySelectorAll('input[name="brand"]').forEach(c => c.checked = false); break;
+						case 'fuel': document.querySelectorAll('input[name="fuel"]').forEach(c => c.checked = false); break;
+						case 'type': document.querySelectorAll('input[name="type"]').forEach(c => c.checked = false); break;
+					}
+					filterAndSort();
+				}
+
+				function filterAndSort() {
+					filterCars();
+					sortCars();
+				}
+
+				document.querySelectorAll('input[type="checkbox"], input[type="range"]').forEach(el => {
+					el.addEventListener('input', filterAndSort);
+					el.addEventListener('change', filterAndSort);
+				});
+				sortSelect.addEventListener('change', filterAndSort);
+				resetBtn.addEventListener('click', () => {
+					yearMin.value = 2020; yearMax.value = 2024;
+					priceMin.value = 0; priceMax.value = 300000;
+					updateYear(); updatePrice();
+					document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
+					sortSelect.value = 'featured';
+					filterAndSort();
+				});
+				filterAndSort();
+
+				
+				const track = document.querySelector('.remate-slider-track');
+				const slides = document.querySelectorAll('.remate-slide');
+				const prevBtn = document.querySelector('.remate-prev');
+				const nextBtn = document.querySelector('.remate-next');
+				const dotsContainer = document.querySelector('.remate-dots');
+
+				let current = 0;
+				const total = slides.length;
+
+				// Crear puntitos
+				for (let i = 0; i < total; i++) {
+					const dot = document.createElement('div');
+					dot.classList.add('dot');
+					if (i === 0) dot.classList.add('active');
+					dot.addEventListener('click', () => goTo(i));
+					dotsContainer.appendChild(dot);
+				}
+				const dots = document.querySelectorAll('.dot');
+
+				function update() {
+					track.style.transform = `translateX(-${current * 100}%)`;
+					dots.forEach((d, i) => d.classList.toggle('active', i === current));
+				}
+
+				function next() {
+					current = (current + 1) % total;
+					update();
+				}
+
+				function prev() {
+					current = (current - 1 + total) % total;
+					update();
+				}
+
+				function goTo(n) {
+					current = n;
+					update();
+				}
+
+				nextBtn.addEventListener('click', next);
+				prevBtn.addEventListener('click', prev);
+
+				// Autoplay
+				let auto = setInterval(next, 8000);
+				document.querySelector('.remate-full-slider').addEventListener('mouseenter', () => clearInterval(auto));
+				document.querySelector('.remate-full-slider').addEventListener('mouseleave', () => auto = setInterval(next, 8000));
+
+				update();
+			});
+			</script>
+</body>
+</html>

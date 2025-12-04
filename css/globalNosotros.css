@@ -1,0 +1,62 @@
+
+:root {
+	/* responsive margins / paddings */
+	--margin-sm: 16px;
+	--margin-md: 32px;
+}
+
+* {
+	--min-screen-size: 430;
+	--max-screen-size: 1406;
+	--interpolate-diff: calc(var(--max-font-size) - var(--min-font-size));
+	--interpolate: clamp(calc(var(--min-font-size) * 1px), calc((var(--min-font-size) * 1px) + var(--interpolate-diff) * ((100vw - calc(var(--min-screen-size) * 1px)) / (var(--max-screen-size) - var(--min-screen-size)))), calc(var(--max-font-size) * 1px));
+}
+
+html {
+	height: 100%;
+	font-size: 16px;
+}
+
+
+
+/* text utility classes */
+
+.subtitle-black {
+	color: #1a1a1a;
+	--min-font-size: 22; --max-font-size: 36; font-size: var(--interpolate);
+	font-family: 'Montserrat';
+	font-weight: 600;
+	line-height: 1.111;
+	letter-spacing: 0px;
+}
+
+
+
+/* section utility classes */
+
+.section {
+	display: flex;
+	flex-direction: column;
+	padding: 0 95px;
+}
+
+
+
+/* ui objects utility classes */
+
+.circle-blue {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(30, 58, 138, 0.1);
+    padding: 12px;
+    border-radius: 50%;
+}
+
+
+
+/* button hover utility classes */
+
+.hover-bright:hover {
+	filter: brightness(1.2);
+}

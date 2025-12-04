@@ -1,0 +1,58 @@
+
+:root {
+	/* responsive margins / paddings */
+	--margin-sm: 16px;
+	--margin-md: 32px;
+}
+
+* {
+	--min-screen-size: 430;
+	--max-screen-size: 1406;
+	--interpolate-diff: calc(var(--max-font-size) - var(--min-font-size));
+	--interpolate: clamp(calc(var(--min-font-size) * 1px), calc((var(--min-font-size) * 1px) + var(--interpolate-diff) * ((100vw - calc(var(--min-screen-size) * 1px)) / (var(--max-screen-size) - var(--min-screen-size)))), calc(var(--max-font-size) * 1px));
+}
+
+html {
+	height: 100%;
+	font-size: 16px;
+}
+
+
+
+/* text utility classes */
+
+.subtitle-black {
+	color: #1a1a1a;
+	--min-font-size: 18; --max-font-size: 24; font-size: var(--interpolate);
+	font-family: 'Montserrat';
+	font-weight: 600;
+	line-height: 1.333;
+}
+
+.text-blue {
+	color: #64748b;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.429;
+}
+
+.text1 {
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.429;
+	letter-spacing: 0px;
+}
+
+.text2 {
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+
+
+/* button hover utility classes */
+
+.hover-bright:hover {
+	filter: brightness(1.2);
+}

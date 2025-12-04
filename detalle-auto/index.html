@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/globalDetalle.css" />
+  <link rel="stylesheet" href="../css/detalle.css" />
+  <title>Detalle del Vehículo - AutoFácil</title>
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    .loading { text-align:center; padding:4rem; color:#666; font-size:1.5rem; }
+    .main-image { width:100%; height:500px; object-fit:cover; border-radius:12px; }
+    .thumbnail { width:100%; height:100px; object-fit:cover; cursor:pointer; border:3px solid transparent; border-radius:8px; transition:all .3s; }
+    .thumbnail.active { border-color:#dc2626; transform:scale(1.05); }
+  </style>
+</head>
+<body>
+	<header class="app-header">
+		<div class="header-container">
+			<h1 class="header-logo"><span>AutoFácil - Crédito Inmediato</span></h1>
+			<nav class="header-nav">
+			<ul class="nav-list">
+				<li><a href="../" class="nav-link">Inicio</a></li>
+				<li><a href="../todos-los-autos" class="nav-link">Todos los autos</a></li>
+				<li><a href="../remates.html" class="nav-link">Remates</a></li>
+				<li><a href="../nosotros.html" class="nav-link">Nosotros</a></li>
+				<li><a href="../contacto.html" class="nav-link">Contacto</a></li>
+			</ul>
+			</nav>
+			<div class="header-right">
+			<div class="social-icons">
+				<a href="#"><img src="../img/icons/facebook.svg" alt=""></a>
+				<a href="#"><img src="../img/icons/instagram.svg" alt=""></a>
+			</div>
+			<a href="../contacto.html" class="btn-demo hover-bright" style="background-color: #dc2626; padding: 10px 11px;">Agendar Demo</a>
+			</div>
+		</div>
+		</header>
+	
+		<div class="group">
+			<div class="app">
+				<div class="app-vehicle-detail">
+					<div class="app-container1">
+						<object data="../assets/app-icon1.svg" class="app-icon1"></object>
+						<p class="app-text-volver-a-todos" onclick="window.history.back()" style="cursor:pointer;">Volver a Todos los Autos</p>
+					</div>
+
+					<div class="app-container2">
+						<div class="app-container3">
+						<!-- IMÁGENES -->
+							<div class="card1" id="car-detail">
+								<div class="loading">Cargando vehículo...</div>
+							</div>
+
+							<!-- DESCRIPCIÓN, ESPECIFICACIONES Y CARACTERÍSTICAS SE CARGARÁN AQUÍ -->
+							<div id="car-info"></div>
+							</div>
+
+						<!-- CARD LATERAL FIJO -->
+						<!-- <div class="card6" id="car-sidebar"></div> -->
+					</div>
+			</div>
+			
+			<div class="app-footer">
+				<div class="footer-main">
+					<!-- Columna 1: Logo y descripción -->
+					<div class="footer-brand">
+						<img src="../img/logoFooter.png" class="footer-logo" alt="AutoFácil Logo" />
+						<p class="footer-description">
+							Tu socio confiable para vehículos premium. Calidad, confiabilidad y servicio excepcional.
+						</p>
+						<!-- ICONOS DE REDES SOCIALES -->
+						<div class="footer-social">
+							<a href="https://facebook.com/autofacil" target="_blank" class="social-link" aria-label="Síguenos en Facebook">
+							<img src="../img/icons/facebook.svg" alt="Facebook" class="social-icon" />
+							</a>
+							<a href="https://instagram.com/autofacil" target="_blank" class="social-link" aria-label="Síguenos en Instagram">
+							<img src="../img/icons/instagram.svg" alt="Instagram" class="social-icon" />
+							</a>
+							<a href="https://twitter.com/autofacil" target="_blank" class="social-link" aria-label="Síguenos en Twitter">
+							<img src="../img/icons/twitter.svg" alt="Twitter" class="social-icon" />
+							</a>
+						</div>
+					</div>
+						<!-- Columna 2: Enlaces Rápidos -->
+					<div class="footer-column">
+						<h3 class="footer-heading">Enlaces Rápidos</h3>
+						<ul class="footer-list">
+							<li><a href="../">Inicio</a></li>
+							<li><a href="/todos-los-autos">Todos los Autos</a></li>
+							<li><a href="#">Nosotros</a></li>
+							<li><a href="/contacto">Contacto</a></li>
+						</ul>
+					</div>
+						<!-- Columna 3: Servicios -->
+					<div class="footer-column">
+						<h3 class="footer-heading">Servicios</h3>
+						<ul class="footer-list">
+							<li><a href="#">Comprar un Auto</a></li>
+							<li><a href="#">Vender tu Auto</a></li>
+							<li><a href="#">Opciones de Financiamiento</a></li>
+							<li><a href="#">Valuación de Permuta</a></li>
+						</ul>
+					</div>
+						<!-- Columna 4: Contáctanos -->
+					<div class="footer-column">
+						<h3 class="footer-heading">Contáctanos</h3>
+						<ul class="footer-contact">
+							<li>
+								<object data="../../assets/app-icon.svg" type="image/svg+xml"></object>
+								<span>Av. Principal 123, Ciudad de México, CDMX 01234</span>
+							</li>
+							<li>
+								<object data="../../assets/list-item/list-item-icon1.svg" type="image/svg+xml"></object>
+								<span>+52 (55) 1234-5678</span>
+							</li>
+							<li>
+								<a href="mailto: info@autofacil.com.mx">
+									<object data="../../assets/list-item/list-item-icon2.svg" type="image/svg+xml"></object>
+									<span>info@autofacil.com.mx</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+					<!-- Línea divisoria y copyright -->
+				<div class="footer-bottom">
+					<p class="footer-copyright">
+						© 2025 AutoFácil - Crédito Inmediato. Todos los derechos reservados.
+					</p>
+					<div class="footer-links">
+						<a href="#" class="footer-link">Política de Privacidad</a>
+						<span class="footer-separator">•</span>
+						<a href="#" class="footer-link">Términos y Condiciones</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="card6" id="car-sidebar">
+			<div class="card-vehicle-detail4">
+				<h2 class="card-subtitle3">BMW M5 Competition</h2>
+				<p class="card-text-paragraph3">2024 • Sedán</p>
+			</div>
+			
+			<div class="card-vehicle-detail5">
+				<p class="card-text-paragraph4 text-blue">Precio</p>
+				<h2 class="card-subtitle4">$125,000</h2>
+			</div>
+			
+			<button class="card-btn4 hover-bright">Agendar Demo</button>
+			
+			<div class="card-vehicle-detail6">
+				<p class="card-text-heading">Financiamiento Disponible</p>
+				<p class="card-text-paragraph5 text-blue">
+					Obtén aprobación de crédito instantánea con nuestras opciones de financiamiento flexibles. ¡Maneja hoy mismo!
+				</p>
+				<p class="card-text-btn text1">Más Información →</p>
+			</div>
+			
+			<div class="card-vehicle-detail7">
+				<div class="list-item container16">
+					<object data="../assets/list-item/list-item-icon3.svg" class="list-item-icon" type="image/svg+xml"></object>
+					<p class="list-item-text">Reporte de Historial Gratuito</p>
+				</div>
+				
+				<div class="list-item container17">
+					<object data="../assets/list-item/list-item-icon3.svg" class="list-item-icon" type="image/svg+xml"></object>
+					<p class="list-item-text">Garantía de Devolución de 7 Días</p>
+				</div>
+				
+				<div class="list-item container18">
+					<object data="../assets/list-item/list-item-icon3.svg" class="list-item-icon" type="image/svg+xml"></object>
+					<p class="list-item-text">Opciones Certificadas de Segunda Mano</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+const API_URL = 'http://54.205.241.136/api/public/car/'
+const urlParams = new URLSearchParams(window.location.search)
+const carId = urlParams.get('id')
+
+let images = []
+let currentIndex = 0
+let autoSlideInterval = null
+
+// CAMBIAR IMAGEN PRINCIPAL
+function changeMainImage(index) {
+  if (images.length === 0) return
+  currentIndex = index
+
+  const imgUrl = 'http://54.205.241.136' + images[index].url
+  const main = document.querySelector('.card-vehicle-detail1')
+  if (main) main.style.backgroundImage = `url('${imgUrl}')`
+
+  // Actualizar thumbnails
+  document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+    if (i === index) {
+      thumb.style.border = '4px solid #dc2626'
+      thumb.style.transform = 'scale(1.05)'
+    } else {
+      thumb.style.border = '2px solid #ddd'
+      thumb.style.transform = 'scale(1)'
+    }
+  })
+}
+
+// SIGUIENTE
+function nextImage() {
+  currentIndex = (currentIndex + 1) % images.length
+  changeMainImage(currentIndex)
+}
+
+// ANTERIOR
+function prevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length
+  changeMainImage(currentIndex)
+}
+
+// AUTO SLIDE
+function startAutoSlide() {
+  stopAutoSlide()
+  autoSlideInterval = setInterval(nextImage, 5000)
+}
+function stopAutoSlide() {
+  if (autoSlideInterval) clearInterval(autoSlideInterval)
+}
+
+if (!carId) {
+  document.body.innerHTML = '<h1 style="text-align:center;padding:10rem;color:#dc2626;">Falta el ID del vehículo</h1>'
+} else {
+  fetch(API_URL + carId)
+    .then(res => res.ok ? res.json() : Promise.reject())
+    .then(car => {
+      images = Array.isArray(car.images) ? car.images : []
+      if (images.length === 0) images = [{ url: '/img/placeholder.jpg' }]
+
+      const primaryImg = images.find(i => i.isPrimary)?.url || images[0].url
+
+      // === GALERÍA CON SLIDER AUTOMÁTICO Y BOTONES FUNCIONALES ===
+      document.getElementById('car-detail').innerHTML = `
+        <div class="card-vehicle-detail1" 
+             style="background-image:url('http://54.205.241.136${primaryImg}');
+                    background-size:cover; background-position:center; 
+                    height:520px; border-radius:16px; position:relative;
+                    transition:background-image 0.6s ease-in-out;">
+          ${car.isFeatured ? '<button class="card-btn-badge hover-bright">Destacado</button>' : ''}
+          
+          <div class="card-row-bottom">
+            <div class="circle-button circle-btn1 hover-bright" onclick="prevImage()" style="cursor:pointer;">
+              <object data="../assets/circle-button/circle-button-icon3.svg"></object>
+            </div>
+            <div class="circle-button circle-btn2 hover-bright" onclick="nextImage()" style="cursor:pointer;">
+              <object data="../assets/circle-button/circle-button-icon4.svg"></object>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-vehicle-detail2" style="margin-top:20px; display:flex; gap:12px; overflow-x:auto; padding:10px 0;">
+          ${images.map((img, i) => `
+            <img src="http://54.205.241.136${img.url}" 
+                 class="card-button card-btn${i+1} thumbnail"
+                 style="width:120px; height:80px; object-fit:cover; border-radius:12px; cursor:pointer; 
+                        border:${i===0?'4px solid #dc2626':'2px solid #ddd'}; 
+                        transition:all 0.3s; flex-shrink:0;"
+                 onclick="changeMainImage(${i})">
+          `).join('')}
+        </div>
+      `
+
+      // === DESCRIPCIÓN + ESPECIFICACIONES (tu diseño original) ===
+      document.getElementById('car-info').innerHTML = `
+        <div class="app-container4">
+          <h2 class="app-subtitle1">Descripción</h2>
+          <p class="app-text-paragraph1">${car.description || 'Vehículo en excelente estado, listo para entrega inmediata.'}</p>
+        </div>
+
+        <div class="card2">
+          <h2 class="card-subtitle2 subtitle-black">Especificaciones</h2>
+          <div class="card-vehicle-detail3">
+            <div class="card-container">
+              <div class="card-icon">
+                <div class="card-line card-line1"></div>
+                <div class="card-line card-line2"></div>
+                <div class="card-group"><div class="card-line card-line3"></div></div>
+              </div>
+              <div class="container-a container2">
+                <p class="container-text-paragraph1">Año</p>
+                <p class="container-text-paragraph2">${car.year}</p>
+              </div>
+            </div>
+
+            <div class="container-b container3">
+              <object data="../assets/container/container-icon1.svg" class="container-icon1"></object>
+              <div class="container-a container1">
+                <p class="container-text-paragraph1">Kilometraje</p>
+                <p class="container-text-paragraph2">${Number(car.mileage).toLocaleString()} km</p>
+              </div>
+            </div>
+
+            <div class="container-b container4">
+              <object data="../assets/container/container-icon.svg" class="container-icon1"></object>
+              <div class="container-a container1">
+                <p class="container-text-paragraph1">Tipo de Motor</p>
+                <p class="container-text-paragraph2">${car.fuelType || 'Gasolina'}</p>
+              </div>
+            </div>
+
+            <div class="container-b container5">
+              <object data="../assets/container/container-icon3.svg" class="container-icon1"></object>
+              <div class="container-a container1">
+                <p class="container-text-paragraph1">Transmisión</p>
+                <p class="container-text-paragraph2">${car.transmission || 'Automática'}</p>
+              </div>
+            </div>
+
+            <div class="container-c container6">
+              <object data="../assets/container/container-icon4.svg" class="container-icon2"></object>
+              <div class="container-container">
+                <p class="container-text-paragraph3">Color</p>
+                <p class="container-text-paragraph4">${car.color || 'No especificado'}</p>
+              </div>
+            </div>
+
+            <div class="container-b container7">
+              <object data="../assets/container/container-icon5.svg" class="container-icon1"></object>
+              <div class="container-a container1">
+                <p class="container-text-paragraph1">Asientos</p>
+                <p class="container-text-paragraph2">${car.seats || 5} pasajeros</p>
+              </div>
+            </div>
+
+            ${car.horsepower ? `
+            <div class="container-c container8">
+              <object data="../assets/container/container-icon3.svg" class="container-icon2"></object>
+              <div class="container-container">
+                <p class="container-text-paragraph3">Caballos de Fuerza</p>
+                <p class="container-text-paragraph4">${car.horsepower} HP</p>
+              </div>
+            </div>` : ''}
+
+            ${car.fuelEconomy ? `
+            <div class="container-c container9">
+              <object data="../assets/container/container-icon.svg" class="container-icon2"></object>
+              <div class="container-container">
+                <p class="container-text-paragraph3">Economía de Combustible</p>
+                <p class="container-text-paragraph4">${car.fuelEconomy}</p>
+              </div>
+            </div>` : ''}
+          </div>
+        </div>
+      `
+
+      // === SIDEBAR DERECHO ===
+      document.getElementById('car-sidebar').innerHTML = `
+        <div class="card-vehicle-detail4">
+          <h2 class="card-subtitle3">${car.title}</h2>
+          <p class="card-text-paragraph3">${car.year} • ${car.type || 'Sedán'}</p>
+        </div>
+        <div class="card-vehicle-detail5">
+          <p class="card-text-paragraph4 text-blue">Precio</p>
+          <h2 class="card-subtitle4">$${Number(car.price).toLocaleString()}</h2>
+        </div>
+        <button class="card-btn4 hover-bright" onclick="location.href='../contacto.html'" style="background-color: #dc2626; padding: 10px 11px;">Agendar Demo</button>
+        <div class="card-vehicle-detail6">
+          <p class="card-text-heading">Financiamiento Disponible</p>
+          <p class="card-text-paragraph5 text-blue">
+            Obtén aprobación de crédito instantánea con nuestras opciones de financiamiento flexibles.
+          </p>
+          <p class="card-text-btn text1">Más Información →</p>
+        </div>
+        <div class="card-vehicle-detail7">
+          <div class="list-item container16"><object data="../assets/list-item/list-item-icon3.svg"></object><p class="list-item-text">Reporte de Historial Gratuito</p></div>
+          <div class="list-item container17"><object data="../assets/list-item/list-item-icon3.svg"></object><p class="list-item-text">Garantía de Devolución de 7 Días</p></div>
+          <div class="list-item container18"><object data="../assets/list-item/list-item-icon3.svg"></object><p class="list-item-text">Opciones Certificadas de Segunda Mano</p></div>
+        </div>
+      `
+
+      // INICIAR SLIDER AUTOMÁTICO
+      startAutoSlide()
+
+      // PAUSAR AL HACER HOVER EN LA GALERÍA
+      const gallery = document.getElementById('car-detail')
+      gallery.addEventListener('mouseenter', stopAutoSlide)
+      gallery.addEventListener('mouseleave', startAutoSlide)
+
+    })
+    .catch(err => {
+      console.error('Error:', err)
+      document.getElementById('car-detail').innerHTML = '<p style="color:#dc2626;text-align:center;padding:6rem;font-size:1.8rem;">Vehículo no encontrado</p>'
+    })
+}
+</script>
+</body>
+
+</html>

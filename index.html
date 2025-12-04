@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/global.css" />
+		<link rel="stylesheet" href="css/app.css" />
+		<title>AutoFacil</title>
+		<link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
+	</head>
+
+	<body>
+			<header class="app-header">
+				<div class="header-container">
+					<!-- Logo -->
+					<h1 href="#" class="header-logo">
+						<span>AutoFácil - Credito Inmediato</span>
+					</h1>
+
+					<!-- Menú -->
+					<nav class="header-nav">
+						<ul class="nav-list">
+							<li><a href="#" class="nav-link active">Inicio</a></li>
+							<li><a href="/todos-los-autos" class="nav-link">Todos los autos</a></li>
+							<li><a href="/remates" class="nav-link">Remates</a></li>
+							<li><a href="/nosotros" class="nav-link">Nosotros</a></li>
+							<li><a href="/contacto" class="nav-link">Contacto</a></li>
+						</ul>
+					</nav>
+
+					<!-- Íconos sociales + botón -->
+					<div class="header-right">
+						<div class="social-icons">
+							<a href="#" aria-label="Facebook"><img src="./img/icons/facebook.svg" alt=""></a>
+							<a href="#" aria-label="Instagram"><img src="./img/icons/instagram.svg" alt=""></a>
+						</div>
+						<a href="/contacto" class="btn-demo hover-bright">Agendar Demo</a>
+					</div>
+				</div>
+			</header>
+		<div class="app">
+			
+			<div class="app-home-page">
+				
+
+				<div class="app-hero-slider">
+					<div class="hero-slides" id="hero-slides">
+						<div style="text-align:center; padding:8rem 2rem; color:white; background: linear-gradient(135deg, #1e3a8a, #3b82f6);">
+						<h1 style="font-size:3rem; margin-bottom:1rem;">Cargando slider...</h1>
+						</div>
+					</div>
+
+					<!-- Puntitos dinámicos -->
+					<div class="app-container2" id="hero-dots"></div>
+				</div>
+				
+				<div class="app-vehicle-type card1">
+					<div class="app-container3">
+						<h2 class="app-subtitle1">¿Que tipo de vehículo buscas?</h2>
+						<p class="app-text-paragraph2 text1">Encuentra el auto perfecto para ti</p>
+					</div>
+					
+					<div class="app-container4">
+						<div class="button btn1">
+							<div class="button-circle">
+								<object data="assets/button-circle-container/button-icon1.svg" class="button-icon" type="image/svg+xml"></object>
+							</div>
+							
+							<p class="button-text">Sedán</p>
+						</div>
+						
+						<div class="button btn2">
+							<div class="button-circle">
+								<object data="assets/button-circle-container/button-icon2.svg" class="button-icon" type="image/svg+xml"></object>
+							</div>
+							
+							<p class="button-text">SUV</p>
+						</div>
+						
+						<div class="button btn3">
+							<div class="button-circle">
+								<object data="assets/button-circle-container/button-icon3.svg" class="button-icon" type="image/svg+xml"></object>
+							</div>
+							
+							<p class="button-text">Cupé</p>
+						</div>
+						
+						<div class="button btn4">
+							<div class="button-circle">
+								<object data="assets/button-circle-container/button-icon4.svg" class="button-icon" type="image/svg+xml"></object>
+							</div>
+							
+							<p class="button-text">Hatchback</p>
+						</div>
+						
+						<div class="button btn5">
+							<div class="button-circle">
+								<object data="assets/button-circle-container/button-icon2.svg" class="button-icon" type="image/svg+xml"></object>
+							</div>
+							
+							<p class="button-text">Camioneta</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="app-section1">
+                <div class="container-b container6">
+                    <h2 class="container-subtitle">Autos Destacados</h2>
+                    <p class="container-text1">Descubre nuestra selección premium de vehículos</p>
+                </div>
+                
+                <div class="app-container5">
+                    <div class="app-group">
+                        <div class="app-container6" id="featured-slider">
+							<div style="text-align:center; padding:4rem; color:#666;">
+								Cargando autos destacados...
+							</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Flechas -->
+					<div class="circle-button circle-btn1" id="featured-prev">
+						<object data="assets/circle-button/circle-button-icon1.svg" type="image/svg+xml"></object>
+					</div>
+					<div class="circle-button circle-btn2" id="featured-next">
+						<object data="assets/circle-button/circle-button-icon2.svg" type="image/svg+xml"></object>
+					</div>
+
+					<!-- Puntitos -->
+					<div class="slider-indicators" id="featured-indicators"></div>
+                </div>
+            </div>
+				
+				<!-- INVENTARIO CON FILTROS -->
+				<div class="app-section2">
+				<div class="container-b container7">
+					<h2 class="container-subtitle">Explora Nuestro Inventario</h2>
+					<p class="container-text1">Encuentra el vehículo perfecto para tus necesidades</p>
+				</div>
+
+				<div class="inventory-wrapper">
+					
+					<!-- FILTROS -->
+					<aside class="filters-sidebar">
+						<div class="filters-header">
+							<h3 class="filters-title">Filtros</h3>
+							<button class="filters-reset">Restablecer</button>
+						</div>
+
+						<!-- Filtros activos -->
+						<div class="active-filters"></div>
+
+						<!-- Año -->
+						<div class="filter-group">
+							<label class="filter-label">Rango de Año</label>
+							<div class="range-slider-container">
+							<div class="range-slider-track">
+								<div class="range-slider-fill"></div>
+							</div>
+							<input type="range" min="2020" max="2024" value="2020" class="range-min">
+							<input type="range" min="2020" max="2024" value="2024" class="range-max">
+							</div>
+							<div class="range-values">
+							<span class="range-value-display">2020</span>
+							<span class="range-value-display">2024</span>
+							</div>
+						</div>
+
+						<!-- Precio -->
+						<div class="filter-group">
+							<label class="filter-label">Rango de Precio</label>
+							<div class="range-slider-container">
+							<div class="range-slider-track">
+								<div class="range-slider-fill"></div>
+							</div>
+							<input type="range" min="0" max="300000" step="1000" value="0" class="range-min">
+							<input type="range" min="0" max="300000" step="1000" value="300000" class="range-max">
+							</div>
+							<div class="range-values">
+							<span class="range-value-display">$0</span>
+							<span class="range-value-display">$300,000</span>
+							</div>
+						</div>
+
+						<!-- Resto de filtros (sin cambios) -->
+						<div class="filter-group">
+							<label class="filter-label">Marca</label>
+							<div class="checkbox-group" id="brand-filters">
+								<!-- Se llenará con JS -->
+							</div>
+						</div>
+
+					<!-- Motor -->
+					<div class="filter-group">
+						<label class="filter-label">Tipo de Motor</label>
+						<div class="checkbox-group">
+						<label><input type="checkbox" name="fuel" value="Gasolina"> Gasolina</label>
+						<label><input type="checkbox" name="fuel" value="Diésel"> Diésel</label>
+						<label><input type="checkbox" name="fuel" value="Eléctrico"> Eléctrico</label>
+						<label><input type="checkbox" name="fuel" value="Híbrido"> Híbrido</label>
+						</div>
+					</div>
+
+					<!-- Tipo -->
+					<div class="filter-group">
+						<label class="filter-label">Tipo de Vehículo</label>
+						<div class="checkbox-group">
+							<label><input type="checkbox" name="type" value="SEDAN"> Sedán</label>
+							<label><input type="checkbox" name="type" value="SUV"> SUV</label>
+							<label><input type="checkbox" name="type" value="COUPE"> Cupé</label>
+							<label><input type="checkbox" name="type" value="HATCHBACK"> Hatchback</label>
+							<label><input type="checkbox" name="type" value="TRUCK"> Camioneta</label>
+						</div>
+					</div>
+					</aside>
+
+					<!-- GRID DE AUTOS -->
+					<div class="inventory-main">
+						<div class="inventory-header">
+							<p class="inventory-count">Cargando vehículos...</p>
+							<div class="sort-by">
+							<label>Ordenar por:</label>
+							<select class="sort-select">
+								<option value="featured">Destacados</option>
+								<option value="price-asc">Precio: menor a mayor</option>
+								<option value="price-desc">Precio: mayor a menor</option>
+								<option value="year-desc">Año: más reciente</option>
+							</select>
+							</div>
+						</div>
+
+						<div class="inventory-grid" id="cars-grid">
+							<!-- Aquí se inyectarán los autos -->
+						</div>
+
+						<button class="btn app-btn2 hover-bright" onclick="window.location.href='/todos-los-autos'">
+							Ver Todos los Autos
+						</button>
+					</div>
+				</div>
+			</div>
+				
+				<div class="app-section3 card1">
+					<h2 class="app-subtitle3">¿Listo para Manejar el Auto de tus Sueños?</h2>
+					<p class="app-text-paragraph5 text2">
+						Obtén aprobación de crédito instantánea y maneja hoy mismo
+					</p>
+					
+					<div class="container-a container8">
+						<a href="/contacto"  class="container-btn container-btn1 hover-bright">Agendar Demo</a>
+						<button class="container-btn container-btn2 hover-dark">¿Quieres Vender tu Auto?</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="app-footer">
+				<div class="footer-main">
+					<!-- Columna 1: Logo y descripción -->
+					<div class="footer-brand">
+						<img src="./img/logoFooter.png" class="footer-logo" alt="AutoFácil Logo" />
+						<p class="footer-description">
+							Tu socio confiable para vehículos premium. Calidad, confiabilidad y servicio excepcional.
+						</p>
+
+						<!-- ICONOS DE REDES SOCIALES -->
+						<div class="footer-social">
+							<a href="https://facebook.com/autofacil" target="_blank" class="social-link" aria-label="Síguenos en Facebook">
+							<img src="img/icons/facebook.svg" alt="Facebook" class="social-icon" />
+							</a>
+							<a href="https://instagram.com/autofacil" target="_blank" class="social-link" aria-label="Síguenos en Instagram">
+							<img src="img/icons/instagram.svg" alt="Instagram" class="social-icon" />
+							</a>
+							<a href="https://twitter.com/autofacil" target="_blank" class="social-link" aria-label="Síguenos en Twitter">
+							<img src="img/icons/twitter.svg" alt="Twitter" class="social-icon" />
+							</a>
+						</div>
+					</div>
+
+					<!-- Columna 2: Enlaces Rápidos -->
+					<div class="footer-column">
+					<h3 class="footer-heading">Enlaces Rápidos</h3>
+					<ul class="footer-list">
+						<li><a href="#">Inicio</a></li>
+						<li><a href="/todos-los-autos">Todos los Autos</a></li>
+						<li><a href="/nosotros">Nosotros</a></li>
+						<li><a href="/contacto">Contacto</a></li>
+					</ul>
+					</div>
+
+					<!-- Columna 3: Servicios -->
+					<div class="footer-column">
+					<h3 class="footer-heading">Servicios</h3>
+					<ul class="footer-list">
+						<li><a href="#">Comprar un Auto</a></li>
+						<li><a href="#">Vender tu Auto</a></li>
+						<li><a href="#">Opciones de Financiamiento</a></li>
+						<li><a href="#">Valuación de Permuta</a></li>
+					</ul>
+					</div>
+
+					<!-- Columna 4: Contáctanos -->
+					<div class="footer-column">
+					<h3 class="footer-heading">Contáctanos</h3>
+					<ul class="footer-contact">
+						<li>
+							<object data="assets/app-icon.svg" type="image/svg+xml"></object>
+							<span>Av. Principal 123, Ciudad de México, CDMX 01234</span>
+						</li>
+						<li>
+							<object data="assets/list-item/list-item-icon1.svg" type="image/svg+xml"></object>
+							<span>+52 (55) 1234-5678</span>
+						</li>
+						<li>
+							<a href="mailto: info@autofacil.com.mx">
+								<object data="assets/list-item/list-item-icon2.svg" type="image/svg+xml"></object>
+								<span>info@autofacil.com.mx</span>
+							</a>
+						</li>
+					</ul>
+					</div>
+				</div>
+
+				<!-- Línea divisoria y copyright -->
+				<div class="footer-bottom">
+					<p class="footer-copyright">
+					© 2025 AutoFácil - Crédito Inmediato. Todos los derechos reservados.
+					</p>
+					<div class="footer-links">
+					<a href="#" class="footer-link">Política de Privacidad</a>
+					<span class="footer-separator">•</span>
+					<a href="#" class="footer-link">Términos y Condiciones</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				// ========================================
+				// 1. CONFIGURACIÓN INICIAL Y VARIABLES
+				// ========================================
+				const API_HERO_SLIDER = 'http://54.205.241.136/api/public/slider/home'
+				const API_URL = 'http://54.205.241.136/api/public/cars?limit=6';
+				let allCars = [];
+				let currentFilteredCars = [];
+				
+				// Elementos del DOM
+				const grid = document.getElementById('cars-grid');
+				const countEl = document.querySelector('.inventory-count');
+				const resetBtn = document.querySelector('.filters-reset');
+				const sortSelect = document.querySelector('.sort-select');
+				const activeFiltersContainer = document.querySelector('.active-filters');
+				
+				// Sliders de rango
+				const yearMin = document.querySelector('.range-min');
+				const yearMax = document.querySelector('.range-max');
+				const priceMin = document.querySelectorAll('.range-min')[1];
+				const priceMax = document.querySelectorAll('.range-max')[1];
+				
+				const yearValMin = document.querySelectorAll('.range-values span')[0];
+				const yearValMax = document.querySelectorAll('.range-values span')[1];
+				const priceValMin = document.querySelectorAll('.range-values span')[2];
+				const priceValMax = document.querySelectorAll('.range-values span')[3];
+				
+				const yearFill = document.querySelector('.range-slider-fill');
+				const priceFill = document.querySelectorAll('.range-slider-fill')[1];
+				
+				// ========================================
+				// 2. FUNCIONES PARA SLIDERS DE RANGO
+				// ========================================
+				function updateSliderFill(min, max, fill) {
+					const minVal = parseInt(min.value);
+					const maxVal = parseInt(max.value);
+					const minPercent = ((minVal - min.min) / (min.max - min.min)) * 100;
+					const maxPercent = ((maxVal - max.min) / (max.max - max.min)) * 100;
+					fill.style.left = `${minPercent}%`;
+					fill.style.width = `${maxPercent - minPercent}%`;
+				}
+				
+				function updateYear() {
+					yearValMin.textContent = yearMin.value;
+					yearValMax.textContent = yearMax.value;
+					updateSliderFill(yearMin, yearMax, yearFill);
+				}
+				
+				function updatePrice() {
+					priceValMin.textContent = `$${Number(priceMin.value).toLocaleString()}`;
+					priceValMax.textContent = `$${Number(priceMax.value).toLocaleString()}`;
+					updateSliderFill(priceMin, priceMax, priceFill);
+				}
+				
+				// Event listeners para sliders
+				yearMin.addEventListener('input', updateYear);
+				yearMax.addEventListener('input', updateYear);
+				priceMin.addEventListener('input', updatePrice);
+				priceMax.addEventListener('input', updatePrice);
+				
+				// ========================================
+				// 3. CARGAR DATOS DE LA API
+				// ========================================
+				async function loadCars() {
+					try {
+						const res = await fetch(API_URL);
+						const data = await res.json();
+						allCars = data.cars || [];
+						
+						if (allCars.length === 0) {
+							countEl.textContent = 'No hay vehículos disponibles';
+							return;
+						}
+						
+						// Normalizar datos de la API
+						allCars = allCars.map(car => ({
+							...car,
+							fuelTypeNormalized: car.fuelType === 'GASOLINE' ? 'Gasolina' : 
+											car.fuelType === 'DIESEL' ? 'Diésel' : 
+											car.fuelType === 'ELECTRIC' ? 'Eléctrico' : 
+											'Híbrido',
+							transmissionNormalized: car.transmission === 'AUTOMATIC' ? 'Automática' : 'Manual'
+						}));
+						
+						// Calcular rangos dinámicos basados en los datos reales
+						const years = allCars.map(car => car.year).filter(year => year);
+						const prices = allCars.map(car => car.price).filter(price => price);
+						
+						const minYear = years.length > 0 ? Math.min(...years) : 2020;
+						const maxYear = years.length > 0 ? Math.max(...years) : 2024;
+						const minPrice = prices.length > 0 ? Math.min(...prices) : 0;
+						const maxPrice = prices.length > 0 ? Math.max(...prices) : 300000;
+						
+						// Ajustar los sliders para que coincidan con los datos reales
+						yearMin.min = minYear;
+						yearMin.max = maxYear;
+						yearMin.value = minYear;
+						
+						yearMax.min = minYear;
+						yearMax.max = maxYear;
+						yearMax.value = maxYear;
+						
+						priceMin.min = 0;
+						priceMin.max = Math.ceil(maxPrice / 1000) * 1000; // Redondear al siguiente mil
+						priceMin.value = 0;
+						
+						priceMax.min = 0;
+						priceMax.max = Math.ceil(maxPrice / 1000) * 1000;
+						priceMax.value = Math.ceil(maxPrice / 1000) * 1000;
+						
+						// Actualizar displays
+						updateYear();
+						updatePrice();
+						
+						renderBrands();
+						applyFiltersAndSort();
+						
+						// Mostrar mensaje informativo
+						console.log(`Cargados ${allCars.length} vehículos. Rango: ${minYear}-${maxYear}, Precio: $${minPrice}-$${maxPrice}`);
+						
+					} catch (err) {
+						countEl.textContent = 'Error cargando vehículos';
+						console.error(err);
+					}
+				}
+				
+				// ========================================
+				// 4. RENDERIZAR MARCAS (FILTROS)
+				// ========================================
+				function renderBrands() {
+					const container = document.getElementById('brand-filters');
+					const brands = [...new Set(allCars.map(car => car.brand))].sort();
+					
+					container.innerHTML = brands.map(brand => `
+						<label><input type="checkbox" name="brand" value="${brand}"> ${brand.replace(/_/g, ' ')}</label>
+					`).join('');
+					
+					// Reconectar event listeners después de renderizar
+					setupFilterEvents();
+				}
+				
+				// ========================================
+				// 5. RENDERIZAR AUTOS EN EL GRID
+				// ========================================
+				function renderCars(cars) {
+					if (!cars || cars.length === 0) {
+						grid.innerHTML = '<div class="no-results" style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #666;"><p>No se encontraron vehículos con los filtros seleccionados</p></div>';
+						return;
+					}
+					
+					grid.innerHTML = cars.map(car => `
+						<div class="car-card"
+							data-brand="${car.brand}"
+							data-year="${car.year}"
+							data-price="${car.price}"
+							data-fuel="${car.fuelTypeNormalized}"
+							data-type="${car.type}"
+							data-id="${car.id}">
+							<div class="car-image" style="background-image: url('http://54.205.241.136${car.primaryImage || '/img/placeholder.jpg'}')">
+								${car.isFeatured ? '<span class="badge">Destacado</span>' : ''}
+							</div>
+							<div class="car-info">
+								<h3>${car.title || `${car.brand} ${car.model}`}</h3>
+								<p class="year">${car.year}</p>
+								<div class="specs">
+									<div class="spec-item">
+										<object data="./img/Icon-km.svg" type="image/svg+xml" class="spec-icon"></object>
+										<span>${(car.mileage || 0).toLocaleString()} km</span>
+									</div>
+									<div class="spec-item">
+										<object data="./img/Icon-gasolina.png" type="image/svg+xml" class="spec-icon"></object>
+										<span>${car.fuelTypeNormalized}</span>
+									</div>
+									<div class="spec-item">
+										<object data="./img/Icon-automatica.png" type="image/svg+xml" class="spec-icon"></object>
+										<span>${car.transmissionNormalized}</span>
+									</div>
+								</div>
+								<div class="price-action">
+									<strong>$${(car.price || 0).toLocaleString()}</strong>
+									<button class="btn" onclick="window.location.href='detalle-auto/?id=${car.id}'">Ver Detalles</button>
+								</div>
+							</div>
+						</div>
+					`).join('');
+				}
+				
+				// ========================================
+				// 6. FILTRADO DE AUTOS
+				// ========================================
+				function filterCars() {
+					if (allCars.length === 0) return [];
+					
+					// Obtener valores actuales de los sliders
+					const currentMinYear = parseInt(yearMin.value);
+					const currentMaxYear = parseInt(yearMax.value);
+					const currentMinPrice = parseInt(priceMin.value);
+					const currentMaxPrice = parseInt(priceMax.value);
+					
+					// Obtener valores MÁXIMOS posibles de los sliders (no los actuales)
+					const maxPossibleYear = parseInt(yearMax.max);
+					const minPossibleYear = parseInt(yearMin.min);
+					const maxPossiblePrice = parseInt(priceMax.max);
+					const minPossiblePrice = parseInt(priceMin.min);
+					
+					// Verificar si los sliders están en sus valores predeterminados (sin filtro)
+					const isYearDefault = (currentMinYear === minPossibleYear && currentMaxYear === maxPossibleYear);
+					const isPriceDefault = (currentMinPrice === minPossiblePrice && currentMaxPrice === maxPossiblePrice);
+					
+					const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(i => i.value);
+					const selectedFuels = Array.from(document.querySelectorAll('input[name="fuel"]:checked')).map(i => i.value);
+					const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(i => i.value);
+					
+					return allCars.filter(car => {
+						// Filtrar por año - SOLO si no está en valores predeterminados
+						if (!isYearDefault) {
+							const yearMatch = car.year >= currentMinYear && car.year <= currentMaxYear;
+							if (!yearMatch) return false;
+						}
+						
+						// Filtrar por precio - SOLO si no está en valores predeterminados
+						if (!isPriceDefault) {
+							const priceMatch = car.price >= currentMinPrice && car.price <= currentMaxPrice;
+							if (!priceMatch) return false;
+						}
+						
+						// Filtrar por marca
+						if (selectedBrands.length > 0 && !selectedBrands.includes(car.brand)) {
+							return false;
+						}
+						
+						// Filtrar por tipo de motor
+						if (selectedFuels.length > 0 && !selectedFuels.includes(car.fuelTypeNormalized)) {
+							return false;
+						}
+						
+						// Filtrar por tipo de vehículo
+						if (selectedTypes.length > 0 && !selectedTypes.includes(car.type)) {
+							return false;
+						}
+						
+						return true;
+					});
+				}
+				
+				// ========================================
+				// 7. ORDENAR AUTOS
+				// ========================================
+				function sortCars(cars) {
+					const sortValue = sortSelect.value;
+					
+					return [...cars].sort((a, b) => {
+						switch (sortValue) {
+							case 'price-asc':
+								return a.price - b.price;
+							case 'price-desc':
+								return b.price - a.price;
+							case 'year-desc':
+								return b.year - a.year;
+							case 'featured':
+							default:
+								// Primero los destacados, luego por año más reciente
+								if (a.isFeatured && !b.isFeatured) return -1;
+								if (!a.isFeatured && b.isFeatured) return 1;
+								return b.year - a.year;
+						}
+					});
+				}
+				
+				// ========================================
+				// 8. APLICAR FILTROS Y ORDENAMIENTO
+				// ========================================
+				function applyFiltersAndSort() {
+					currentFilteredCars = filterCars();
+					const sortedCars = sortCars(currentFilteredCars);
+					
+					countEl.textContent = `Mostrando ${sortedCars.length} de ${allCars.length} vehículos`;
+					renderCars(sortedCars);
+					updateActiveFilters();
+				}
+				
+				// ========================================
+				// 9. FILTROS ACTIVOS
+				// ========================================
+				function updateActiveFilters() {
+					activeFiltersContainer.innerHTML = '';
+					
+					const currentMinYear = parseInt(yearMin.value);
+					const currentMaxYear = parseInt(yearMax.value);
+					const currentMinPrice = parseInt(priceMin.value);
+					const currentMaxPrice = parseInt(priceMax.value);
+					
+					// Solo mostrar filtro de año si NO está en el rango completo
+					if (currentMinYear > parseInt(yearMin.min) || currentMaxYear < parseInt(yearMax.max)) {
+						activeFiltersContainer.appendChild(createActiveFilterTag(`Año: ${currentMinYear}-${currentMaxYear}`, 'year'));
+					}
+					
+					// Solo mostrar filtro de precio si NO está en el rango completo
+					if (currentMinPrice > 0 || currentMaxPrice < parseInt(priceMax.max)) {
+						activeFiltersContainer.appendChild(createActiveFilterTag(
+							`$${Number(currentMinPrice).toLocaleString()} - $${Number(currentMaxPrice).toLocaleString()}`,
+							'price'
+						));
+					}
+					
+					const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(i => i.value);
+					if (selectedBrands.length > 0) {
+						activeFiltersContainer.appendChild(createActiveFilterTag(
+							`Marcas: ${selectedBrands.join(', ')}`,
+							'brand'
+						));
+					}
+					
+					const selectedFuels = Array.from(document.querySelectorAll('input[name="fuel"]:checked')).map(i => i.value);
+					if (selectedFuels.length > 0) {
+						activeFiltersContainer.appendChild(createActiveFilterTag(
+							`Motor: ${selectedFuels.join(', ')}`,
+							'fuel'
+						));
+					}
+					
+					const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(i => i.value);
+					if (selectedTypes.length > 0) {
+						activeFiltersContainer.appendChild(createActiveFilterTag(
+							`Tipo: ${selectedTypes.join(', ')}`,
+							'type'
+						));
+					}
+				}
+				
+				function createActiveFilterTag(text, type) {
+					const div = document.createElement('div');
+					div.className = 'active-filter-tag';
+					div.innerHTML = `${text} <button data-filter="${type}">×</button>`;
+					
+					div.querySelector('button').addEventListener('click', function() {
+						clearFilter(type);
+					});
+					
+					return div;
+				}
+				
+				function clearFilter(type) {
+					switch (type) {
+						case 'year':
+							yearMin.value = 2020;
+							yearMax.value = 2024;
+							updateYear();
+							break;
+						case 'price':
+							priceMin.value = 0;
+							priceMax.value = 300000;
+							updatePrice();
+							break;
+						case 'brand':
+							document.querySelectorAll('input[name="brand"]').forEach(c => c.checked = false);
+							break;
+						case 'fuel':
+							document.querySelectorAll('input[name="fuel"]').forEach(c => c.checked = false);
+							break;
+						case 'type':
+							document.querySelectorAll('input[name="type"]').forEach(c => c.checked = false);
+							break;
+					}
+					applyFiltersAndSort();
+				}
+				
+				// ========================================
+				// 10. CONFIGURAR EVENTOS DE FILTROS
+				// ========================================
+				function setupFilterEvents() {
+					// Checkboxes
+					document.querySelectorAll('input[type="checkbox"]').forEach(el => {
+						el.addEventListener('change', applyFiltersAndSort);
+					});
+					
+					// Sliders (ya tienen event listeners para updateYear/updatePrice)
+					yearMin.addEventListener('change', applyFiltersAndSort);
+					yearMax.addEventListener('change', applyFiltersAndSort);
+					priceMin.addEventListener('change', applyFiltersAndSort);
+					priceMax.addEventListener('change', applyFiltersAndSort);
+					
+					// Ordenar
+					sortSelect.addEventListener('change', applyFiltersAndSort);
+					
+					// Reset
+					resetBtn.addEventListener('click', () => {
+						// Restablecer a valores dinámicos (basados en datos reales)
+						yearMin.value = parseInt(yearMin.min);
+						yearMax.value = parseInt(yearMax.max);
+						priceMin.value = 0;
+						priceMax.value = parseInt(priceMax.max);
+						
+						updateYear();
+						updatePrice();
+						document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
+						sortSelect.value = 'featured';
+						applyFiltersAndSort();
+					});
+				}
+				
+				// ========================================
+				// 11. SLIDER DE AUTOS DESTACADOS
+				// ========================================
+				async function loadFeaturedCars() {
+					try {
+						const res = await fetch('http://54.205.241.136/api/public/cars/featured');
+						const data = await res.json();
+						const cars = data.cars || [];
+						
+						const container = document.getElementById('featured-slider');
+						const indicators = document.getElementById('featured-indicators');
+						
+						if (cars.length === 0) {
+							container.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:4rem;color:#999;">No hay autos destacados en este momento</p>';
+							return;
+						}
+						
+						// Renderizar tarjetas
+						container.innerHTML = cars.map(car => `
+							<div class="card5" style="background-image: url('http://54.205.241.136${car.primaryImage || '/img/placeholder.jpg'}'); background-size: cover;">
+								<button class="btn-badge card-btn-badge2 hover-bright">Destacado</button>
+								<h2 class="card-subtitle3 subtitle">${car.title || `${car.brand} ${car.model}`}</h2>
+								<p class="card-text-paragraph3 text1">${car.year}</p>
+								<p class="card-text-paragraph4 text2">$${(car.price || 0).toLocaleString()}</p>
+							</div>
+						`).join('');
+						
+						// Inicializar slider de destacados
+						initFeaturedSlider();
+					} catch (err) {
+						console.error('Error cargando destacados:', err);
+					}
+				}
+				
+				let featuredIndex = 0;
+				function initFeaturedSlider() {
+					const container = document.getElementById('featured-slider');
+					const cards = container.children;
+					const totalCards = cards.length;
+					const cardsPerView = 4;
+					const totalPages = Math.ceil(totalCards / cardsPerView);
+					
+					// Crear indicadores
+					const indicators = document.getElementById('featured-indicators');
+					indicators.innerHTML = '';
+					
+					for (let i = 0; i < totalPages; i++) {
+						const dot = document.createElement('div');
+						dot.className = 'slider-indicator';
+						if (i === 0) dot.classList.add('active');
+						dot.addEventListener('click', () => goToFeaturedPage(i));
+						indicators.appendChild(dot);
+					}
+					
+					function goToFeaturedPage(index) {
+						featuredIndex = index;
+						const offset = -index * 100;
+						container.style.transform = `translateX(${offset}%)`;
+						
+						document.querySelectorAll('#featured-indicators .slider-indicator').forEach((dot, i) => {
+							dot.classList.toggle('active', i === index);
+						});
+					}
+					
+					// Botones de navegación
+					document.getElementById('featured-prev')?.addEventListener('click', () => {
+						featuredIndex = featuredIndex <= 0 ? totalPages - 1 : featuredIndex - 1;
+						goToFeaturedPage(featuredIndex);
+					});
+					
+					document.getElementById('featured-next')?.addEventListener('click', () => {
+						featuredIndex = featuredIndex >= totalPages - 1 ? 0 : featuredIndex + 1;
+						goToFeaturedPage(featuredIndex);
+					});
+					
+					// Iniciar en página 0
+					goToFeaturedPage(0);
+				}
+				
+
+				async function loadHeroSlider() {
+					try {
+						const res = await fetch(API_HERO_SLIDER)
+						const slides = await res.json()
+
+						if (!Array.isArray(slides) || slides.length === 0) {
+						document.getElementById('hero-slides').innerHTML = `
+							<div class="hero-slide active" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./img/sliderHome/slider1.jpg'); background-size:cover; background-position:center;">
+							<div class="app-container1">
+								<h1 class="app-title">Maneja el Auto de tus Sueños Hoy</h1>
+								<p class="app-text-paragraph1">Descubre nuestra colección exclusiva de vehículos premium con aprobación de crédito instantánea</p>
+								<div class="container-a container5">
+								<button class="container-btn container-btn1 hover-bright">Agendar Demo</button>
+								<button class="container-btn container-btn2 hover-dark">¿Quieres Vender tu Auto?</button>
+								</div>
+							</div>
+							</div>
+						`
+						document.getElementById('hero-dots').innerHTML = '<div class="app-circle-button active"></div>'
+						initHeroSlider()
+						return
+						}
+
+						// Renderizar slides
+						const slidesHTML = slides.map((slide, i) => `
+						<div class="hero-slide ${i === 0 ? 'active' : ''}" 
+							style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('http://54.205.241.136${slide.imageUrl}'); background-size:cover; background-position:center;">
+							<div class="app-container1">
+							<h1 class="app-title">${slide.title || 'Maneja el Auto de tus Sueños Hoy'}</h1>
+							<p class="app-text-paragraph1">${slide.subtitle || 'Descubre nuestra colección exclusiva de vehículos premium con aprobación de crédito instantánea'}</p>
+							<div class="container-a container5">
+								<a href="/contacto" class="container-btn container-btn1 hover-bright">Agendar Demo</a>
+								<button class="container-btn container-btn2 hover-dark">¿Quieres Vender tu Auto?</button>
+							</div>
+							</div>
+						</div>
+						`).join('')
+
+						document.getElementById('hero-slides').innerHTML = slidesHTML
+
+						// Renderizar puntitos
+						const dotsHTML = slides.map((_, i) => `
+						<div class="app-circle-button app-circle-btn${i + 1} ${i === 0 ? 'active' : ''}"></div>
+						`).join('')
+						document.getElementById('hero-dots').innerHTML = dotsHTML
+
+						// Inicializar slider
+						initHeroSlider()
+
+					} catch (err) {
+						console.error('Error cargando hero slider:', err)
+						// Fallback silencioso con imagen por defecto
+					}
+					}
+
+				// ========================================
+				// 12. HERO SLIDER (FONDO QUE CAMBIA)
+				// ========================================
+				function initHeroSlider() {
+					const heroSlides = document.querySelectorAll('.hero-slide')
+					const heroDots = document.querySelectorAll('.app-circle-button')
+					let heroCurrent = 0
+					const heroTotal = heroSlides.length
+
+					function goToHeroSlide(index) {
+						heroSlides[heroCurrent].classList.remove('active')
+						heroDots[heroCurrent].classList.remove('active')
+						heroCurrent = index
+						heroSlides[heroCurrent].classList.add('active')
+						heroDots[heroCurrent].classList.add('active')
+					}
+
+					heroDots.forEach((dot, i) => {
+						dot.addEventListener('click', () => goToHeroSlide(i))
+					})
+
+					// Auto play
+					setInterval(() => {
+						goToHeroSlide((heroCurrent + 1) % heroTotal)
+					}, 6000)
+					}
+				
+				// ========================================
+				// 13. INICIALIZACIÓN
+				// ========================================
+				function init() {
+					// Inicializar sliders de rango
+					updateYear();
+					updatePrice();
+					
+					// Cargar datos
+					loadCars();
+					loadFeaturedCars();
+					
+					// Inicializar sliders
+					initHeroSlider();
+					
+					// Configurar eventos básicos
+					setupFilterEvents();
+				}
+				
+				// Iniciar todo
+				init();
+				loadHeroSlider();
+			});
+</script>
+	</body>
+</html>

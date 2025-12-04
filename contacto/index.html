@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/globalContacto.css" />
+  <link rel="stylesheet" href="../css/contacto.css" />
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <title>Contacto - AutoFácil</title>
+  <link rel="icon" type="image/png" href="../favicon.png" sizes="32x32">
+
+  <style>
+    .custom-marker {
+      background: #2563eb;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 4px solid white;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+    }
+    .custom-marker::after {
+      content: '';
+      position: absolute;
+      bottom: -10px; left: 50%;
+      transform: translateX(-50%);
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 12px solid #2563eb;
+    }
+    #map { width: 100%; height: 450px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+  </style>
+</head>
+
+<body>
+  <header class="app-header">
+    <div class="header-container">
+      <h1 class="header-logo"><span>AutoFácil - Crédito Inmediato</span></h1>
+      <nav class="header-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Inicio</a></li>
+          <li><a href="../todos-los-autos" class="nav-link">Todos los autos</a></li>
+          <li><a href="../remates" class="nav-link">Remates</a></li>
+          <li><a href="/nosotros" class="nav-link">Nosotros</a></li>
+          <li><a href="#" class="nav-link active">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header-right">
+        <div class="social-icons">
+          <a href="#"><img src="../img/icons/facebook.svg" alt=""></a>
+          <a href="#"><img src="../img/icons/instagram.svg" alt=""></a>
+        </div>
+        <a href="/contacto" class="btn-demo hover-bright">Agendar Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="app">
+    <div class="app-contact-page">
+      <div class="app-container1">
+        <h1 class="app-title">Contáctanos</h1>
+        <p class="app-text">
+          ¿Tienes preguntas? Estamos aquí para ayudar. Contáctanos y te responderemos lo antes posible.
+        </p>
+      </div>
+
+      <div class="app-container2">
+        <div class="app-container3">
+
+          <!-- LADO IZQUIERDO - DINÁMICO -->
+          <div class="app-container4" id="contact-info">
+            <div style="text-align:center; padding:4rem; color:#666; font-size:1.2rem;">
+              Cargando información de contacto...
+            </div>
+          </div>
+
+          <!-- FORMULARIO -->
+          <div class="card">
+            <h2 class="card-subtitle">Envíanos un Mensaje</h2>
+            <div class="card-contact-page">
+              <div class="container-c container5">
+                <p class="container-text2">Nombre Completo *</p>
+                <input type="text" class="container-input card-light" placeholder="Ingresa tu nombre completo" required>
+              </div>
+              <div class="container-c container6">
+                <p class="container-text2">Correo Electrónico *</p>
+                <input type="email" class="container-input card-light" placeholder="Ingresa tu correo electrónico" required>
+              </div>
+              <div class="container-c container7">
+                <p class="container-text2">Número de Teléfono *</p>
+                <input type="tel" class="container-input card-light" placeholder="Ingresa tu número de teléfono" required>
+              </div>
+              <div class="input-group-container">
+                <p class="input-group-container-text">Mensaje *</p>
+                <textarea class="input-group-container-input card-light" rows="5" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
+              </div>
+              <button class="card-btn" onclick="enviarFormulario()">Enviar Mensaje</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAPA -->
+        <div class="map-container" style="margin-top:40px;">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER (igual que antes) -->
+  <div class="app-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <img src="../img/logoFooter.png" class="footer-logo" alt="AutoFácil Logo" />
+        <p class="footer-description">Tu socio confiable para vehículos premium. Calidad, confiabilidad y servicio excepcional.</p>
+        <div class="footer-social">
+          <a href="#"><img src="../img/icons/facebook.svg" alt="Facebook" class="social-icon" /></a>
+          <a href="#"><img src="../img/icons/instagram.svg" alt="Instagram" class="social-icon" /></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-heading">Enlaces Rápidos</h3>
+        <ul class="footer-list">
+          <li><a href="../">Inicio</a></li>
+          <li><a href="..//todos-los-autos">Todos los Autos</a></li>
+          <li><a href="/nosotros">Nosotros</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-heading">Servicios</h3>
+        <ul class="footer-list">
+          <li><a href="#">Comprar un Auto</a></li>
+          <li><a href="#">Vender tu Auto</a></li>
+          <li><a href="#">Opciones de Financiamiento</a></li>
+          <li><a href="#">Valuación de Permuta</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-heading">Contáctanos</h3>
+        <ul class="footer-contact">
+          <li><object data="../assets/app-icon.svg" type="image/svg+xml"></object><span id="footer-address">Cargando...</span></li>
+          <li><object data="../assets/list-item/list-item-icon1.svg" type="image/svg+xml"></object><span id="footer-phone">Cargando...</span></li>
+          <li><a href="mailto:info@autofacil.com.mx"><object data="../assets/list-item/list-item-icon2.svg" type="image/svg+xml"></object><span id="footer-email">info@autofacil.com.mx</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2025 AutoFácil - Crédito Inmediato. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Política de Privacidad</a> • <a href="#" class="footer-link">Términos y Condiciones</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- SCRIPT PRINCIPAL -->
+  <script>
+    const API_CONTACT = 'http://54.205.241.136/api/public/contact'
+
+    async function loadContactInfo() {
+      try {
+        const res = await fetch(API_CONTACT)
+        const data = await res.json()
+
+        // LADO IZQUIERDO
+        document.getElementById('contact-info').innerHTML = `
+          <div class="container-a container1">
+            <div class="container-circle1 circle-blue"><object data="../assets/circle-container/container-icon1.svg" type="image/svg+xml"></object></div>
+            <div class="container-container1">
+              <p class="container-text-heading1">Visítanos</p>
+              <div class="container-paragraph1">${data.address.map(l => `<p class="text">${l}</p>`).join('')}</div>
+            </div>
+          </div>
+          <div class="container-b container2">
+            <div class="container-circle2 circle-blue"><object data="../assets/circle-container/container-icon2.svg" type="image/svg+xml"></object></div>
+            <div class="container-container2">
+              <p class="container-text-heading2">Llámanos</p>
+              <div class="container-paragraph2">${data.phones.map(p => `<p class="text">${p}</p>`).join('')}</div>
+            </div>
+          </div>
+          <div class="container-b container3">
+            <div class="container-circle2 circle-blue"><object data="../assets/circle-container/container-icon3.svg" type="image/svg+xml"></object></div>
+            <div class="container-container2">
+              <p class="container-text-heading2">Escríbenos</p>
+              <div class="container-paragraph2">${data.emails.map(e => `<p class="text"><a href="mailto:${e}" style="color:#64748b;text-decoration:none;">${e}</a></p>`).join('')}</div>
+            </div>
+          </div>
+          <div class="container-a container4">
+            <div class="container-circle1 circle-blue"><object data="../assets/circle-container/container-icon4.svg" type="image/svg+xml"></object></div>
+            <div class="container-container1">
+              <p class="container-text-heading1">Horario de Atención</p>
+              <div class="container-paragraph1">${data.hours.map(h => `<p class="text">${h}</p>`).join('')}</div>
+            </div>
+          </div>
+        `
+
+        // FOOTER
+        document.getElementById('footer-address').textContent = data.address[0]
+        document.getElementById('footer-phone').textContent = data.phones[0]
+        document.getElementById('footer-email').textContent = data.emails[0]
+        document.getElementById('footer-email').parentElement.href = 'mailto:' + data.emails[0]
+
+        // MAPA
+        initMap(data.location.lat, data.location.lng, data.location.name)
+
+      } catch (err) {
+        document.getElementById('contact-info').innerHTML = '<p style="color:#dc2626;text-align:center;">Error al cargar información de contacto</p>'
+        console.error(err)
+      }
+    }
+
+    function initMap(lat, lng, name) {
+      const map = L.map('map').setView([lat, lng], 16)
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map)
+
+      const icon = L.divIcon({ html: '<div class="custom-marker"></div>', className: '', iconSize: [32, 32], iconAnchor: [16, 32] })
+      L.marker([lat, lng], { icon }).addTo(map)
+        .bindPopup(`<b>${name}</b><br>${document.querySelector('#contact-info .container-paragraph1')?.textContent || ''}`)
+        .openPopup()
+    }
+
+    function enviarFormulario() {
+      alert('¡Mensaje enviado con éxito! Te contactaremos pronto.')
+      // Aquí conectarás con tu API de envío de email cuando la tengas
+    }
+
+    // CARGAR TODO AL INICIAR
+    loadContactInfo()
+  </script>
+</body>
+</html>
