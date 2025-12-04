@@ -363,9 +363,9 @@ if (!carId) {
         </div>
         <div class="card-vehicle-detail5">
           <p class="card-text-paragraph4 text-blue">Precio</p>
-          <h2 class="card-subtitle4">$${Number(car.price).toLocaleString()}</h2>
+          <h2 class="card-subtitle4">$${Number(car.price).toLocaleString()}</h2> 
         </div>
-        <button class="card-btn4 hover-bright" onclick="location.href='../contacto'" style="background-color: #dc2626; padding: 10px 11px;">Agendar Demo</button>
+        <button class="card-btn4 hover-bright" onclick="location.href='../contacto/?id=${car.id}'" style="background-color: #dc2626; padding: 10px 11px;">Agendar Demo</button>
         <div class="card-vehicle-detail6">
           <p class="card-text-heading">Financiamiento Disponible</p>
           <p class="card-text-paragraph5 text-blue">

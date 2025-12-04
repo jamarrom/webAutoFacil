@@ -30,6 +30,12 @@
       border-top: 12px solid #2563eb;
     }
     #map { width: 100%; height: 450px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+    
+    /* Estilo para botón deshabilitado */
+    .card-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
   </style>
 </head>
 
@@ -81,21 +87,21 @@
             <div class="card-contact-page">
               <div class="container-c container5">
                 <p class="container-text2">Nombre Completo *</p>
-                <input type="text" class="container-input card-light" placeholder="Ingresa tu nombre completo" required>
+                <input type="text" id="nombre-input" class="container-input card-light" placeholder="Ingresa tu nombre completo" required>
               </div>
               <div class="container-c container6">
                 <p class="container-text2">Correo Electrónico *</p>
-                <input type="email" class="container-input card-light" placeholder="Ingresa tu correo electrónico" required>
+                <input type="email" id="email-input" class="container-input card-light" placeholder="Ingresa tu correo electrónico" required>
               </div>
               <div class="container-c container7">
                 <p class="container-text2">Número de Teléfono *</p>
-                <input type="tel" class="container-input card-light" placeholder="Ingresa tu número de teléfono" required>
+                <input type="tel" id="telefono-input" class="container-input card-light" placeholder="Ingresa tu número de teléfono" required>
               </div>
               <div class="input-group-container">
                 <p class="input-group-container-text">Mensaje *</p>
-                <textarea class="input-group-container-input card-light" rows="5" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
+                <textarea id="mensaje-textarea" class="input-group-container-input card-light" rows="5" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
               </div>
-              <button class="card-btn" onclick="enviarFormulario()">Enviar Mensaje</button>
+              <button class="card-btn" id="btn-enviar">Enviar Mensaje</button>
             </div>
           </div>
         </div>
@@ -108,7 +114,7 @@
     </div>
   </div>
 
-  <!-- FOOTER (igual que antes) -->
+  <!-- FOOTER -->
   <div class="app-footer">
     <div class="footer-main">
       <div class="footer-brand">
@@ -123,7 +129,7 @@
         <h3 class="footer-heading">Enlaces Rápidos</h3>
         <ul class="footer-list">
           <li><a href="../">Inicio</a></li>
-          <li><a href="..//todos-los-autos">Todos los Autos</a></li>
+          <li><a href="../todos-los-autos">Todos los Autos</a></li>
           <li><a href="/nosotros">Nosotros</a></li>
           <li><a href="#">Contacto</a></li>
         </ul>
@@ -157,81 +163,310 @@
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <!-- SCRIPT PRINCIPAL -->
+  <!-- EmailJS (versión más reciente) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
   <script>
-    const API_CONTACT = 'http://54.205.241.136/api/public/contact'
+// ==================== CONFIGURACIÓN EMAILJS ====================
+const EMAILJS_CONFIG = {
+  PUBLIC_KEY: 'bmkHjiDnSPtgyB-0y',
+  SERVICE_ID: 'service_meuxs3a',
+  TEMPLATE_ID: 'template_vbflddt'
+};
+// ===============================================================
 
-    async function loadContactInfo() {
-      try {
-        const res = await fetch(API_CONTACT)
-        const data = await res.json()
+// VARIABLE PARA CONTROLAR ENVÍOS MÚLTIPLES
+let isSending = false;
 
-        // LADO IZQUIERDO
-        document.getElementById('contact-info').innerHTML = `
-          <div class="container-a container1">
-            <div class="container-circle1 circle-blue"><object data="../assets/circle-container/container-icon1.svg" type="image/svg+xml"></object></div>
-            <div class="container-container1">
-              <p class="container-text-heading1">Visítanos</p>
-              <div class="container-paragraph1">${data.address.map(l => `<p class="text">${l}</p>`).join('')}</div>
-            </div>
-          </div>
-          <div class="container-b container2">
-            <div class="container-circle2 circle-blue"><object data="../assets/circle-container/container-icon2.svg" type="image/svg+xml"></object></div>
-            <div class="container-container2">
-              <p class="container-text-heading2">Llámanos</p>
-              <div class="container-paragraph2">${data.phones.map(p => `<p class="text">${p}</p>`).join('')}</div>
-            </div>
-          </div>
-          <div class="container-b container3">
-            <div class="container-circle2 circle-blue"><object data="../assets/circle-container/container-icon3.svg" type="image/svg+xml"></object></div>
-            <div class="container-container2">
-              <p class="container-text-heading2">Escríbenos</p>
-              <div class="container-paragraph2">${data.emails.map(e => `<p class="text"><a href="mailto:${e}" style="color:#64748b;text-decoration:none;">${e}</a></p>`).join('')}</div>
-            </div>
-          </div>
-          <div class="container-a container4">
-            <div class="container-circle1 circle-blue"><object data="../assets/circle-container/container-icon4.svg" type="image/svg+xml"></object></div>
-            <div class="container-container1">
-              <p class="container-text-heading1">Horario de Atención</p>
-              <div class="container-paragraph1">${data.hours.map(h => `<p class="text">${h}</p>`).join('')}</div>
-            </div>
-          </div>
-        `
+// INICIALIZACIÓN DE EMAILJS
+(function initializeEmailJS() {
+  try {
+    if (!EMAILJS_CONFIG.PUBLIC_KEY) {
+      throw new Error('Public Key no está definida');
+    }
+    
+    emailjs.init({
+      publicKey: EMAILJS_CONFIG.PUBLIC_KEY,
+      blockHeadless: true,
+      limitRate: {
+        id: 'app',
+        throttle: 10000
+      }
+    });
+    
+    console.log('✅ EmailJS inicializado correctamente');
+    
+  } catch (error) {
+    console.error('❌ Error al inicializar EmailJS:', error);
+  }
+})();
 
-        // FOOTER
-        document.getElementById('footer-address').textContent = data.address[0]
-        document.getElementById('footer-phone').textContent = data.phones[0]
-        document.getElementById('footer-email').textContent = data.emails[0]
-        document.getElementById('footer-email').parentElement.href = 'mailto:' + data.emails[0]
+// Variables globales
+const urlParams = new URLSearchParams(window.location.search);
+const carId = urlParams.get('id');
+let carInfo = null;
 
-        // MAPA
-        initMap(data.location.lat, data.location.lng, data.location.name)
+// Cargar información de contacto + mapa
+async function loadContactInfo() {
+  try {
+    const res = await fetch('http://54.205.241.136/api/public/contact');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    
+    const data = await res.json();
 
-      } catch (err) {
-        document.getElementById('contact-info').innerHTML = '<p style="color:#dc2626;text-align:center;">Error al cargar información de contacto</p>'
-        console.error(err)
+    document.getElementById('contact-info').innerHTML = `
+      <div class="container-a container1">
+        <div class="container-circle1 circle-blue"><object data="../assets/circle-container/container-icon1.svg"></object></div>
+        <div class="container-container1">
+          <p class="container-text-heading1">Visítanos</p>
+          <div class="container-paragraph1">${data.address.map(l => `<p class="text">${l}</p>`).join('')}</div>
+        </div>
+      </div>
+      <div class="container-b container2">
+        <div class="container-circle2 circle-blue"><object data="../assets/circle-container/container-icon2.svg"></object></div>
+        <div class="container-container2">
+          <p class="container-text-heading2">Llámanos</p>
+          <div class="container-paragraph2">${data.phones.map(p => `<p class="text">${p}</p>`).join('')}</div>
+        </div>
+      </div>
+      <div class="container-b container3">
+        <div class="container-circle2 circle-blue"><object data="../assets/circle-container/container-icon3.svg"></object></div>
+        <div class="container-container2">
+          <p class="container-text-heading2">Escríbenos</p>
+          <div class="container-paragraph2">${data.emails.map(e => `<p class="text"><a href="mailto:${e}" style="color:#64748b;">${e}</a></p>`).join('')}</div>
+        </div>
+      </div>
+      <div class="container-a container4">
+        <div class="container-circle1 circle-blue"><object data="../assets/circle-container/container-icon4.svg"></object></div>
+        <div class="container-container1">
+          <p class="container-text-heading1">Horario de Atención</p>
+          <div class="container-paragraph1">${data.hours.map(h => `<p class="text">${h}</p>`).join('')}</div>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('footer-address').textContent = data.address[0] || 'Dirección no disponible';
+    document.getElementById('footer-phone').textContent = data.phones[0] || 'Teléfono no disponible';
+    document.getElementById('footer-email').textContent = data.emails[0] || 'info@autofacil.com.mx';
+    document.getElementById('footer-email').parentElement.href = 'mailto:' + (data.emails[0] || 'info@autofacil.com.mx');
+
+    if (data.location && data.location.lat && data.location.lng) {
+      initMap(data.location.lat, data.location.lng, data.location.name || 'AutoFácil');
+    }
+    
+  } catch (error) { 
+    console.error('Error cargando información de contacto:', error);
+    document.getElementById('contact-info').innerHTML = `
+      <div style="text-align:center; padding:2rem; color:#dc2626;">
+        <p>No se pudo cargar la información de contacto</p>
+      </div>
+    `;
+  }
+}
+
+// Cargar datos del auto si viene con ?id=
+async function loadCarIfNeeded() {
+  if (!carId) return;
+
+  try {
+    const res = await fetch(`http://54.205.241.136/api/public/car/${carId}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    
+    carInfo = await res.json();
+
+    const box = document.createElement('div');
+    box.innerHTML = `
+      <div style="background:#f8f9fa;padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;border-left:5px solid #dc2626;">
+        <p style="margin:0;font-weight:600;color:#1e293b;">Interesado en:</p>
+        <p style="margin:5px 0 0;font-size:1.4rem;color:#dc2626;font-weight:700;">
+          ${carInfo.title || 'Auto'} - $${Number(carInfo.price || 0).toLocaleString()}
+        </p>
+      </div>
+    `;
+    
+    const card = document.querySelector('.card');
+    const contactPage = document.querySelector('.card-contact-page');
+    if (card && contactPage) {
+      card.insertBefore(box, contactPage);
+    }
+  } catch (error) { 
+    console.log('Auto no encontrado:', error);
+  }
+}
+
+// FUNCIÓN PRINCIPAL PARA ENVIAR FORMULARIO
+async function enviarFormulario() {
+  if (isSending) {
+    console.log('⚠️ Ya se está enviando un mensaje');
+    return;
+  }
+  
+  isSending = true;
+
+  if (typeof emailjs === 'undefined') {
+    alert('❌ El servicio de email no está disponible.');
+    isSending = false;
+    return;
+  }
+
+  const nombre = document.getElementById('nombre-input').value.trim();
+  const email = document.getElementById('email-input').value.trim();
+  const telefono = document.getElementById('telefono-input').value.trim();
+  const mensaje = document.getElementById('mensaje-textarea').value.trim();
+
+  if (!nombre || !email || !telefono || !mensaje) {
+    alert('❌ Todos los campos marcados con * son obligatorios');
+    isSending = false;
+    return;
+  }
+  
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert('❌ Por favor, ingresa un correo electrónico válido');
+    isSending = false;
+    return;
+  }
+  
+  const telefonoLimpio = telefono.replace(/\D/g, '');
+  if (telefonoLimpio.length < 10) {
+    alert('❌ Por favor, ingresa un número de teléfono válido (mínimo 10 dígitos)');
+    isSending = false;
+    return;
+  }
+
+  let mensajeCompleto = `NUEVO CONTACTO DESDE LA WEB\n\n`;
+  mensajeCompleto += `📋 Nombre: ${nombre}\n`;
+  mensajeCompleto += `📧 Email: ${email}\n`;
+  mensajeCompleto += `📱 Teléfono: ${telefono}\n`;
+  mensajeCompleto += `💬 Mensaje: ${mensaje}\n`;
+
+  if (carInfo) {
+    mensajeCompleto += `\n--- 🚗 INTERESADO EN ---\n`;
+    mensajeCompleto += `Vehículo: ${carInfo.title || 'Auto'}\n`;
+    mensajeCompleto += `Precio: $${Number(carInfo.price || 0).toLocaleString()}\n`;
+    mensajeCompleto += `ID: ${carId}\n`;
+    mensajeCompleto += `Enlace: ${window.location.origin}/detalle-auto.html?id=${carId}`;
+  }
+
+  try {
+    const btn = document.getElementById('btn-enviar');
+    const originalText = btn.textContent;
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+
+    const templateParams = {
+      from_name: nombre,
+      from_email: email,
+      phone: telefono,
+      message: mensajeCompleto,
+      reply_to: email,
+      date: new Date().toLocaleString('es-MX'),
+      car_info: carInfo ? `${carInfo.title} - $${Number(carInfo.price || 0).toLocaleString()}` : 'No especificado'
+    };
+
+    console.log('📤 Enviando email...');
+
+    const response = await emailjs.send(
+      EMAILJS_CONFIG.SERVICE_ID,
+      EMAILJS_CONFIG.TEMPLATE_ID,
+      templateParams
+    );
+
+    console.log('✅ Email enviado exitosamente:', response);
+    
+    alert('✅ ¡Mensaje enviado con éxito!\n\nTe contactaremos pronto.');
+    
+    // Limpiar formulario
+    document.getElementById('nombre-input').value = '';
+    document.getElementById('email-input').value = '';
+    document.getElementById('telefono-input').value = '';
+    document.getElementById('mensaje-textarea').value = '';
+    
+    // Remover info del auto si existía
+    if (carInfo) {
+      const autoBox = document.querySelector('.card > div[style*="background:#f8f9fa"]');
+      if (autoBox) autoBox.remove();
+      carInfo = null;
+    }
+
+  } catch (error) {
+    console.error('❌ Error al enviar email:', error);
+    
+    let errorMessage = 'No se pudo enviar el mensaje. ';
+    
+    if (error.status === 400) {
+      errorMessage += 'Error de configuración. ';
+    } else if (error.status === 429) {
+      errorMessage += 'Demasiados intentos. ';
+    }
+    
+    if (error.text) {
+      if (error.text.includes('Public Key') || error.text.includes('User ID')) {
+        errorMessage += 'Verifica tu configuración de EmailJS.';
+      } else if (error.text.includes('Service ID')) {
+        errorMessage += 'Service ID incorrecto.';
+      } else if (error.text.includes('Template ID')) {
+        errorMessage += 'Template ID incorrecto.';
       }
     }
+    
+    alert(`❌ ${errorMessage}`);
 
-    function initMap(lat, lng, name) {
-      const map = L.map('map').setView([lat, lng], 16)
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(map)
+  } finally {
+    const btn = document.getElementById('btn-enviar');
+    btn.textContent = 'Enviar Mensaje';
+    btn.disabled = false;
+    
+    setTimeout(() => {
+      isSending = false;
+    }, 2000);
+  }
+}
 
-      const icon = L.divIcon({ html: '<div class="custom-marker"></div>', className: '', iconSize: [32, 32], iconAnchor: [16, 32] })
-      L.marker([lat, lng], { icon }).addTo(map)
-        .bindPopup(`<b>${name}</b><br>${document.querySelector('#contact-info .container-paragraph1')?.textContent || ''}`)
-        .openPopup()
-    }
+// Función para inicializar el mapa
+function initMap(lat, lng, name) {
+  try {
+    if (!lat || !lng) return;
+    
+    const map = L.map('map').setView([lat, lng], 16);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19
+    }).addTo(map);
+    
+    const icon = L.divIcon({
+      html: '<div class="custom-marker"></div>',
+      className: '',
+      iconSize: [32, 32],
+      iconAnchor: [16, 32]
+    });
+    
+    L.marker([lat, lng], { icon })
+      .addTo(map)
+      .bindPopup(`<b>${name || 'AutoFácil'}</b>`)
+      .openPopup();
+      
+  } catch (error) {
+    console.error('Error al inicializar el mapa:', error);
+  }
+}
 
-    function enviarFormulario() {
-      alert('¡Mensaje enviado con éxito! Te contactaremos pronto.')
-      // Aquí conectarás con tu API de envío de email cuando la tengas
-    }
-
-    // CARGAR TODO AL INICIAR
-    loadContactInfo()
+// Cargar todo cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM cargado, iniciando aplicación...');
+  
+  loadContactInfo();
+  loadCarIfNeeded();
+  
+  // Agregar UN SOLO event listener al botón
+  const btn = document.getElementById('btn-enviar');
+  if (btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      enviarFormulario();
+    });
+  }
+});
   </script>
 </body>
 </html>
