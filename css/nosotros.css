@@ -146,7 +146,6 @@ body {
         padding: 16px;
     }
     .header-container {
-        flex-direction: column;
         align-items: center;
     }
     .header-nav .nav-list {
@@ -334,10 +333,6 @@ body {
     margin-bottom: 20px;
 }
 
-.card-b {
-
-}
-
 .card-circle2 {
 	float: left;
 	margin-right: 20px;
@@ -417,10 +412,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
-}
-
-.app-subtitle3 {
-
 }
 
 .app-text-paragraph5 {
@@ -743,22 +734,6 @@ body {
 	line-height: 1.429;
 }
 
-.container-text-list1 {
-
-}
-
-.container-text-list2 {
-
-}
-
-.container-text-list3 {
-
-}
-
-.container-text-list4 {
-
-}
-
 
 .footer-container2 {
 	margin-right: 936px;
@@ -854,11 +829,6 @@ body {
 	flex-shrink: 0;
 }
 
-.list-item-text {
-
-}
-/* end list-item*/
-
 
 .footer-list-item {
 	display: flex;
@@ -890,10 +860,6 @@ body {
 	border-top: 1px solid #1e293b;
 }
 
-.footer-text-paragraph2 {
-
-}
-
 .footer-container6 {
 	width: 100%;
 	max-width: 317px;
@@ -901,10 +867,6 @@ body {
 	align-items: flex-start;
 	gap: 15px;
 	flex-shrink: 0;
-}
-
-.footer-text-link1 {
-
 }
 
 .footer-text2 {
@@ -1027,4 +989,113 @@ body {
 	.footer-container5 > * {
 		margin-left: unset !important; margin-right: unset !important;
 	}
+}
+
+
+
+/* ======================= MENÚ HAMBURGUESA FULL-SCREEN (solo móvil) ======================= */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #1e293b;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s;
+  z-index: 999;
+}
+
+body.menu-open .menu-overlay { opacity: 1; visibility: visible; }
+body.menu-open { overflow: hidden; }
+
+@media (max-width: 992px) {
+  .hamburger { display: block; }
+
+  .header-container { padding: 16px 20px; }
+
+  .header-nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all .35s ease;
+    z-index: 1000;
+  }
+
+  .header-nav.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .nav-link {
+    font-size: 1.3rem;
+    padding: 12px 0;
+  }
+
+  body.menu-open .header-logo,
+  body.menu-open .header-right { opacity: 0; pointer-events: none; }
+}
+
+/* ======================= RESPONSIVE RÁPIDO (sin romper nada ======================= */
+@media (max-width: 992px) {
+  .app-container2 { height: auto; padding: 40px 20px; }
+  .card-a { width: 48%; margin: 10px 1%; }
+  .app-container6, .app-container9 {  }
+  
+}
+
+@media (max-width: 770px) {
+	.footer-main {
+		max-width: 200px;
+	}
+}
+
+@media (max-width: 750px) {
+	.card-b {
+    	width: 100%;
+	}
+}
+
+@media (max-width: 640px) {
+  .card-a { width: 100%; margin: 15px 0; }
+  .app-container6, .app-container9 { grid-template-columns: 1fr; }
+  .app-container1 { padding: 80px 20px; }
+}
+
+@media (max-width: 640px) {
+	.container-a {
+		width: 49%;
+		margin-bottom: 20px;
+	}
+}
+
+
+@media (max-width: 480px) {
+    .container-a {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }

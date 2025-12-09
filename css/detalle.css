@@ -180,6 +180,8 @@ body {
 }
 
 /* Responsive */
+
+
 @media (max-width: 1024px) {
     .header-container {
         flex-wrap: wrap;
@@ -189,6 +191,10 @@ body {
     .header-nav .nav-list {
         gap: 20px;
     }
+
+	.footer-main {
+		max-width: 420px !important;
+	}
 }
 
 @media (max-width: 768px) {
@@ -196,7 +202,6 @@ body {
         padding: 16px;
     }
     .header-container {
-        flex-direction: column;
         align-items: center;
     }
     .header-nav .nav-list {
@@ -258,15 +263,12 @@ body {
 .app-container2 {
 	margin: 0 95px;
 	display: flex;
-	flex-direction: column;
 	gap: 64px;
 }
 
 .app-container3 {
-	margin-right: 416px;
-	display: flex;
-	flex-direction: column;
-	gap: 23px;
+	display: inline-block;
+    width: 69%;
 	text-align: left;
 }
 
@@ -316,7 +318,7 @@ body {
 	align-items: flex-start;
 	justify-content: space-between;
 	position: relative;
-    top: 70%;
+    top: 20%;
 }
 
 
@@ -898,10 +900,10 @@ body {
 }
 
 .card6 {
-	position: absolute; z-index: 3; top: 196px; right: 95px; 
+	display: inline-block !important;
+    width: 30%;
 	box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
 	display: flex;
-	flex-direction: column;
 	align-items: flex-start;
 	gap: 48px;
 	font-family: 'Lato';
@@ -1108,6 +1110,10 @@ body {
 	.card-subtitle3 {
 		margin-inline: 0;
 	}
+
+	.footer-main {
+        max-width: 200px !important;
+    }
 }
 
 
@@ -1154,10 +1160,14 @@ body {
 
 @container card1 (width < 319px) {
 	.card-vehicle-detail2 {
-		flex-direction: column;
 		align-items: center;
 		gap: 15px;
 	}
+
+	.thumbnail {
+        width: 53px !important;
+        height: 45px !important;
+    }
 }
 
 @container card-vehicle-detail3 (width < 492px) {
@@ -1232,3 +1242,167 @@ body {
 		margin-left: unset !important; margin-right: unset !important;
 	}
 }
+
+
+/* ================================================================
+   MENÚ HAMBURGUESA FULL-SCREEN + RESPONSIVE PARA "TODOS LOS AUTOS"
+   ================================================================ */
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #1e293b;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1002;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease;
+  z-index: 999;
+}
+
+body.menu-open .menu-overlay { opacity: 1; visibility: visible; }
+body.menu-open { overflow: hidden; }
+
+@media (max-width: 992px) {
+  .hamburger { display: block; }
+
+  .header-container {
+    padding: 16px 20px;
+  }
+
+  .header-nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all .35s ease;
+    z-index: 1000;
+  }
+
+  .header-nav.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .nav-link {
+    font-size: 1.3rem;
+    padding: 12px 0;
+  }
+
+  body.menu-open .header-logo,
+  body.menu-open .header-right { opacity: 0; pointer-events: none; }
+}
+
+/* ======================= RESPONSIVE INVENTARIO ======================= */
+@media (max-width: 1200px) {
+  .inventory-wrapper { gap: 24px; }
+  .filters-sidebar { flex: 0 0 280px; }
+}
+
+@media (max-width: 1100px) {
+	.app-container2 {
+		margin: 0 20px;
+	}
+}
+
+@media (max-width: 1024px) {
+  .inventory-wrapper {
+    flex-direction: column;
+  }
+  .filters-sidebar {
+    flex: none;
+    position: static;
+    max-height: none;
+  }
+  .inventory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 900px) {
+	.app-container2 {
+    	display: block;
+	}
+
+	.app-container3 {
+	    width: 100%;
+	}
+
+	.card6 {
+	    width: 100%;
+    	margin-top: 20px;
+	}
+}
+@media (max-width: 768px) {
+  .app-container1Todos { padding: 80px 20px 40px; }
+  .app-titleTodos { font-size: 2.8rem; }
+  .app-text-paragraph1Todos { font-size: 1.1rem; }
+  .inventory-header { flex-direction: column; align-items: stretch; gap: 16px; }
+  .sort-by { width: 100%; }
+  .sort-select { width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .inventory-grid {
+    grid-template-columns: 1fr;
+  }
+  .car-card { margin: 0 auto; max-width: 380px; }
+  .filters-sidebar { padding: 16px; }
+}
+
+
+@media (max-width: 600px) {
+	.card-vehicle-detail2
+	{
+		padding: 0px !important;	
+	}
+
+	.card1
+	{
+		gap: 10px;
+	}
+	.thumbnail {
+		width: 80px !important;
+		height: 60px !important;
+	}
+}
+
+
+@media (max-width: 500px) {
+    .thumbnail {
+        width: 65px !important;
+        height: 50px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .thumbnail {
+        width: 65px !important;
+        height: 50px !important;
+    }
+}
+

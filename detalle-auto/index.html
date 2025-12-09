@@ -15,19 +15,27 @@
     .thumbnail { width:100%; height:100px; object-fit:cover; cursor:pointer; border:3px solid transparent; border-radius:8px; transition:all .3s; }
     .thumbnail.active { border-color:#dc2626; transform:scale(1.05); }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </head>
 <body>
 	<header class="app-header">
 		<div class="header-container">
 			<h1 class="header-logo"><span>AutoFácil - Crédito Inmediato</span></h1>
-			<nav class="header-nav">
-			<ul class="nav-list">
-				<li><a href="../" class="nav-link">Inicio</a></li>
-				<li><a href="../todos-los-autos" class="nav-link">Todos los autos</a></li>
-				<li><a href="../remates" class="nav-link">Remates</a></li>
-				<li><a href="../nosotros" class="nav-link">Nosotros</a></li>
-				<li><a href="../contacto" class="nav-link">Contacto</a></li>
-			</ul>
+
+      <!-- BOTÓN HAMBURGUESA (nuevo) -->
+    <button class="hamburger" aria-label="Menú" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </button>
+
+			<nav class="header-nav"" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="../" class="nav-link">Inicio</a></li>
+          <li><a href="../todos-los-autos" class="nav-link">Todos los autos</a></li>
+          <li><a href="../remates" class="nav-link">Remates</a></li>
+          <li><a href="../nosotros" class="nav-link">Nosotros</a></li>
+          <li><a href="../contacto" class="nav-link">Contacto</a></li>
+        </ul>
 			</nav>
 			<div class="header-right">
 			<div class="social-icons">
@@ -56,7 +64,50 @@
 
 							<!-- DESCRIPCIÓN, ESPECIFICACIONES Y CARACTERÍSTICAS SE CARGARÁN AQUÍ -->
 							<div id="car-info"></div>
-							</div>
+						</div>
+
+            <div class="card6" id="car-sidebar">
+              <div class="card-vehicle-detail4">
+                <h2 class="card-subtitle3">BMW M5 Competition</h2>
+                <p class="card-text-paragraph3">2024 • Sedán</p>
+              </div>
+              
+              <div class="card-vehicle-detail5">
+                <p class="card-text-paragraph4 text-blue">Precio</p>
+                <h2 class="card-subtitle4">$125,000</h2>
+              </div>
+              
+              <button class="card-btn4 hover-bright">Agendar Demo</button>
+              
+              <div class="card-vehicle-detail6">
+                <p class="card-text-heading">Financiamiento Disponible</p>
+                <p class="card-text-paragraph5 text-blue">
+                  Obtén aprobación de crédito instantánea con nuestras opciones de financiamiento flexibles. ¡Maneja hoy mismo!
+                </p>
+                <p class="card-text-btn text1">Más Información →</p>
+              </div>
+              
+              <div class="card-vehicle-detail7">
+                <div class="list-item container16">
+                  <object data="../assets/list-item/list-item-icon3.svg" class="list-item-icon" type="image/svg+xml"></object>
+                  <p class="list-item-text">Reporte de Historial Gratuito</p>
+                </div>
+                
+                <div class="list-item container17">
+                  <object data="../assets/list-item/list-item-icon3.svg" class="list-item-icon" type="image/svg+xml"></object>
+                  <p class="list-item-text">Garantía de Devolución de 7 Días</p>
+                </div>
+                
+                <div class="list-item container18">
+                  <object data="../assets/list-item/list-item-icon3.svg" class="list-item-icon" type="image/svg+xml"></object>
+                  <p class="list-item-text">Opciones Certificadas de Segunda Mano</p>
+                </div>
+              </div>
+            </div>
+
+
+
+
 
 						<!-- CARD LATERAL FIJO -->
 						<!-- <div class="card6" id="car-sidebar"></div> -->
@@ -139,44 +190,7 @@
 			</div>
 		</div>
 		
-		<div class="card6" id="car-sidebar">
-			<div class="card-vehicle-detail4">
-				<h2 class="card-subtitle3">BMW M5 Competition</h2>
-				<p class="card-text-paragraph3">2024 • Sedán</p>
-			</div>
-			
-			<div class="card-vehicle-detail5">
-				<p class="card-text-paragraph4 text-blue">Precio</p>
-				<h2 class="card-subtitle4">$125,000</h2>
-			</div>
-			
-			<button class="card-btn4 hover-bright">Agendar Demo</button>
-			
-			<div class="card-vehicle-detail6">
-				<p class="card-text-heading">Financiamiento Disponible</p>
-				<p class="card-text-paragraph5 text-blue">
-					Obtén aprobación de crédito instantánea con nuestras opciones de financiamiento flexibles. ¡Maneja hoy mismo!
-				</p>
-				<p class="card-text-btn text1">Más Información →</p>
-			</div>
-			
-			<div class="card-vehicle-detail7">
-				<div class="list-item container16">
-					<object data="../assets/list-item/list-item-icon3.svg" class="list-item-icon" type="image/svg+xml"></object>
-					<p class="list-item-text">Reporte de Historial Gratuito</p>
-				</div>
-				
-				<div class="list-item container17">
-					<object data="../assets/list-item/list-item-icon3.svg" class="list-item-icon" type="image/svg+xml"></object>
-					<p class="list-item-text">Garantía de Devolución de 7 Días</p>
-				</div>
-				
-				<div class="list-item container18">
-					<object data="../assets/list-item/list-item-icon3.svg" class="list-item-icon" type="image/svg+xml"></object>
-					<p class="list-item-text">Opciones Certificadas de Segunda Mano</p>
-				</div>
-			</div>
-		</div>
+		
 	</div>
 
 	<script>
@@ -394,6 +408,42 @@ if (!carId) {
       document.getElementById('car-detail').innerHTML = '<p style="color:#dc2626;text-align:center;padding:6rem;font-size:1.8rem;">Vehículo no encontrado</p>'
     })
 }
+</script>
+
+<script>
+  // === MENÚ HAMBURGUESA FULL-SCREEN ===
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('main-nav');
+  const body = document.body;
+
+  // Crear overlay si no existe
+  let overlay = document.querySelector('.menu-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'menu-overlay';
+    body.appendChild(overlay);
+  }
+
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    body.classList.toggle('menu-open');
+    hamburger.querySelector('i').classList.toggle('fa-bars');
+    hamburger.querySelector('i').classList.toggle('fa-xmark');
+  });
+
+  overlay.addEventListener('click', () => {
+    nav.classList.remove('open');
+    body.classList.remove('menu-open');
+    hamburger.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+  });
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      body.classList.remove('menu-open');
+      hamburger.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+    });
+  });
 </script>
 </body>
 

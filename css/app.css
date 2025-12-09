@@ -281,7 +281,6 @@
         padding: 16px;
     }
     .header-container {
-        flex-direction: column;
         align-items: center;
     }
     .header-nav .nav-list {
@@ -1314,9 +1313,6 @@
 /** breakpoints (margin / paddings) **/
 
 @media screen and (max-width: 1024px) {
-	.app-hero-slider {
-		padding-inline: var(--margin-md);
-	}
 	.app-title {
 		margin-inline: 0;
 	}
@@ -1373,9 +1369,13 @@
 	}
 }
 
-@media screen and (max-width: 576px) {
-	.app-hero-slider {
+@media screen and (max-width: 650px) {
+	/* .app-hero-slider {
 		padding-inline: var(--margin-sm);
+	} */
+
+	.app-container2 {
+	    bottom: 80px;
 	}
 }
 
@@ -1411,7 +1411,6 @@
 
 @container app-vehicle-type (width < 1020px) {
 	.app-container4 {
-		flex-direction: column;
 		align-items: center;
 		gap: 16px;
 	}
@@ -1437,9 +1436,9 @@
 
 @container app-group (width < 1019px) {
 	.app-container6 {
-		flex-direction: column;
+		/* flex-direction: column; */
 		align-items: stretch;
-		gap: 32px;
+		/* gap: 32px; */
 	}
 	.app-container6 > * {
 		margin-left: unset !important; margin-right: unset !important;
@@ -2311,9 +2310,9 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-	.app-hero-slider {
+	/* .app-hero-slider {
 		padding: 100px 32px 32px;
-	}
+	} */
 	.app-title {
 		font-size: 48px;
 	}
@@ -2505,3 +2504,178 @@
             .remate-content .price { font-size: 44px; }
             .remate-badge { top: 20px; left: 20px; font-size: 16px; padding: 8px 20px; }
         }
+
+
+
+
+		/* ================================================================
+   MENÚ HAMBURGUESA FULL-SCREEN + RESPONSIVE PARA "TODOS LOS AUTOS"
+   ================================================================ */
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #1e293b;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1002;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease;
+  z-index: 999;
+}
+
+body.menu-open .menu-overlay { opacity: 1; visibility: visible; }
+body.menu-open { overflow: hidden; }
+
+@media (max-width: 992px) {
+  .hamburger { display: block; }
+
+  .header-container {
+    padding: 16px 20px;
+  }
+
+  .header-nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all .35s ease;
+    z-index: 1000;
+  }
+
+  .header-nav.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .nav-link {
+    font-size: 1.3rem;
+    padding: 12px 0;
+  }
+
+  body.menu-open .header-logo,
+  body.menu-open .header-right { opacity: 0; pointer-events: none; }
+}
+
+/* ======================= RESPONSIVE INVENTARIO ======================= */
+@media (max-width: 1200px) {
+  .inventory-wrapper { gap: 24px; }
+  .filters-sidebar { flex: 0 0 280px; }
+}
+
+@media (max-width: 1024px) {
+  .inventory-wrapper {
+    flex-direction: column;
+  }
+  .filters-sidebar {
+    flex: none;
+    position: static;
+    max-height: none;
+  }
+  .inventory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container1Todos { padding: 80px 20px 40px; }
+  .app-titleTodos { font-size: 2.8rem; }
+  .app-text-paragraph1Todos { font-size: 1.1rem; }
+  .inventory-header { flex-direction: column; align-items: stretch; gap: 16px; }
+  .sort-by { width: 100%; }
+  .sort-select { width: 100%; }
+
+  .footer-main
+ 	{
+    max-width: 500px;
+  }
+
+  	.remate-slide {
+		height: 450px;
+	}
+
+	.remate-content h2 {
+        font-size: 32px;
+    }
+
+	.remate-content .price {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 640px) {
+  .inventory-grid {
+    grid-template-columns: 1fr;
+  }
+  .car-card { margin: 0 auto; max-width: 380px; }
+  .filters-sidebar { padding: 16px; }
+
+  .app-container4 {
+        display: block;
+ 	}
+
+  .button {
+    width: 120px !important;
+    display: inline-block !important;
+  }
+}
+
+@media (max-width: 500px) {
+	.app-title {
+        font-size: 30px;
+    }
+	.hero-slide {
+		padding: 70px;
+	}
+
+
+	.remate-slide {
+		height: 380px;
+	}
+
+	.remate-content h2 {
+        font-size: 28px;
+    }
+
+	.remate-content .price {
+        font-size: 38px;
+    }
+
+	.remate-content .year {
+	    margin: 5px 0 0px;
+    }
+
+    .remate-content {
+        bottom: 30px;
+    }
+
+	.remate-prev, .remate-next {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+}

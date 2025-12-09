@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <title>Contacto - AutoFácil</title>
   <link rel="icon" type="image/png" href="../favicon.png" sizes="32x32">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
   <style>
     .custom-marker {
       background: #2563eb;
@@ -41,26 +42,34 @@
 
 <body>
   <header class="app-header">
-    <div class="header-container">
-      <h1 class="header-logo"><span>AutoFácil - Crédito Inmediato</span></h1>
-      <nav class="header-nav">
-        <ul class="nav-list">
-          <li><a href="../" class="nav-link">Inicio</a></li>
-          <li><a href="../todos-los-autos" class="nav-link">Todos los autos</a></li>
-          <li><a href="../remates" class="nav-link">Remates</a></li>
-          <li><a href="/nosotros" class="nav-link">Nosotros</a></li>
-          <li><a href="#" class="nav-link active">Contacto</a></li>
-        </ul>
-      </nav>
-      <div class="header-right">
-        <div class="social-icons">
-          <a href="#"><img src="../img/icons/facebook.svg" alt=""></a>
-          <a href="#"><img src="../img/icons/instagram.svg" alt=""></a>
-        </div>
-        <a href="/contacto" class="btn-demo hover-bright">Agendar Demo</a>
+  <div class="header-container">
+    <h1 class="header-logo"><span>AutoFácil - Crédito Inmediato</span></h1>
+
+    <!-- BOTÓN HAMBURGUESA -->
+    <button class="hamburger" aria-label="Abrir menú" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- MENÚ (full-screen en móvil) -->
+    <nav class="header-nav" id="main-nav">
+      <ul class="nav-list">
+        <li><a href="../" class="nav-link">Inicio</a></li>
+        <li><a href="../todos-los-autos" class="nav-link">Todos los autos</a></li>
+        <li><a href="../remates" class="nav-link">Remates</a></li>
+        <li><a href="/nosotros" class="nav-link">Nosotros</a></li>
+        <li><a href="#" class="nav-link active">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+      <div class="social-icons">
+        <a href="#"><img src="../img/icons/facebook.svg" alt=""></a>
+        <a href="#"><img src="../img/icons/instagram.svg" alt=""></a>
       </div>
+      <a href="/contacto" class="btn-demo hover-bright">Agendar Demo</a>
     </div>
-  </header>
+  </div>
+</header>
 
   <div class="app">
     <div class="app-contact-page">
@@ -467,6 +476,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+  </script>
+
+  <script>
+    // Menú hamburguesa
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('main-nav');
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      const icon = hamburger.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-xmark');
+    });
+
+    // Cerrar menú al hacer clic en un enlace (opcional pero queda pro)
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        hamburger.querySelector('i').classList.add('fa-bars');
+        hamburger.querySelector('i').classList.remove('fa-xmark');
+      });
+    });
   </script>
 </body>
 </html>
