@@ -929,6 +929,42 @@
 				init();
 				loadHeroSlider();
 			});
-</script>
+		</script>
+
+		<script>
+            // === MENÚ HAMBURGUESA FULL-SCREEN ===
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('main-nav');
+            const body = document.body;
+
+            // Crear overlay si no existe
+            let overlay = document.querySelector('.menu-overlay');
+            if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'menu-overlay';
+            body.appendChild(overlay);
+            }
+
+            hamburger.addEventListener('click', () => {
+            nav.classList.toggle('open');
+            body.classList.toggle('menu-open');
+            hamburger.querySelector('i').classList.toggle('fa-bars');
+            hamburger.querySelector('i').classList.toggle('fa-xmark');
+            });
+
+            overlay.addEventListener('click', () => {
+            nav.classList.remove('open');
+            body.classList.remove('menu-open');
+            hamburger.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('open');
+                body.classList.remove('menu-open');
+                hamburger.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+            });
+            });
+        </script>
 	</body>
 </html>
