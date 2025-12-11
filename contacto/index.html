@@ -54,7 +54,7 @@
     <nav class="header-nav" id="main-nav">
       <ul class="nav-list">
         <li><a href="../" class="nav-link">Inicio</a></li>
-        <li><a href="../todos-los-autos" class="nav-link">Todos los autos</a></li>
+        <li><a href="../todos-los-autos" class="nav-link">Catálogo</a></li>
         <li><a href="../remates" class="nav-link">Remates</a></li>
         <li><a href="/nosotros" class="nav-link">Nosotros</a></li>
         <li><a href="#" class="nav-link active">Contacto</a></li>
@@ -138,7 +138,7 @@
         <h3 class="footer-heading">Enlaces Rápidos</h3>
         <ul class="footer-list">
           <li><a href="../">Inicio</a></li>
-          <li><a href="../todos-los-autos">Todos los Autos</a></li>
+          <li><a href="../todos-los-autos">Catálogo</a></li>
           <li><a href="/nosotros">Nosotros</a></li>
           <li><a href="#">Contacto</a></li>
         </ul>
@@ -146,10 +146,10 @@
       <div class="footer-column">
         <h3 class="footer-heading">Servicios</h3>
         <ul class="footer-list">
-          <li><a href="#">Comprar un Auto</a></li>
-          <li><a href="#">Vender tu Auto</a></li>
-          <li><a href="#">Opciones de Financiamiento</a></li>
-          <li><a href="#">Valuación de Permuta</a></li>
+          
+          <li><a href="/vende-tu-auto">Vender tu Auto</a></li>
+          <li><a href="/terminos-y-condiciones/">Términos y Condiciones</a></li>
+          <li><a href="/aviso-de-privacidad">Aviso de Privacidad</a></li>
         </ul>
       </div>
       <div class="footer-column">
@@ -164,7 +164,7 @@
     <div class="footer-bottom">
       <p class="footer-copyright">© 2025 AutoFácil - Crédito Inmediato. Todos los derechos reservados.</p>
       <div class="footer-links">
-        <a href="#" class="footer-link">Política de Privacidad</a> • <a href="#" class="footer-link">Términos y Condiciones</a>
+        <a href="#" class="footer-link">Política de Privacidad</a> • <a href="/terminos-y-condiciones/" class="footer-link">Términos y Condiciones</a>
       </div>
     </div>
   </div>
@@ -254,13 +254,18 @@ async function loadContactInfo() {
       </div>
     `;
 
-    document.getElementById('footer-address').textContent = data.address[0] || 'Dirección no disponible';
+    document.getElementById('footer-address').textContent = data.address[0] +"" + data.address[1]  || 'Dirección no disponible';
     document.getElementById('footer-phone').textContent = data.phones[0] || 'Teléfono no disponible';
     document.getElementById('footer-email').textContent = data.emails[0] || 'info@autofacil.com.mx';
     document.getElementById('footer-email').parentElement.href = 'mailto:' + (data.emails[0] || 'info@autofacil.com.mx');
 
+    console.log('data',data);
     if (data.location && data.location.lat && data.location.lng) {
-      initMap(data.location.lat, data.location.lng, data.location.name || 'AutoFácil');
+      //initMap(17.9887061, -92.9279642, 'Av. Paseo Tabasco esq. 27 de Febrero, Nueva Villahermosa, 86070.');
+      initMap([
+        { lat: 17.9887061, lng: -92.9279642, name: 'Av. Paseo Tabasco esq. 27 de Febrero, Nueva Villahermosa, 86070.' },
+        { lat: 17.9651447, lng: -92.9541277, name: 'Periférico 1408, Tamulté de las Barrancas, 86150. Villahermosa, Tabasco.' }
+      ]);
     }
     
   } catch (error) { 
@@ -432,29 +437,32 @@ async function enviarFormulario() {
 }
 
 // Función para inicializar el mapa
-function initMap(lat, lng, name) {
+function initMap(points) {
   try {
-    if (!lat || !lng) return;
-    
-    const map = L.map('map').setView([lat, lng], 16);
-    
+    if (!points || points.length === 0) return;
+
+    // Centrar el mapa en el primer punto
+    const map = L.map('map').setView([points[0].lat, points[0].lng], 16);
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors',
-      maxZoom: 19
+      maxZoom: 13
     }).addTo(map);
-    
+
     const icon = L.divIcon({
       html: '<div class="custom-marker"></div>',
       className: '',
       iconSize: [32, 32],
       iconAnchor: [16, 32]
     });
-    
-    L.marker([lat, lng], { icon })
-      .addTo(map)
-      .bindPopup(`<b>${name || 'AutoFácil'}</b>`)
-      .openPopup();
-      
+
+    // Agregar todos los puntos
+    points.forEach(p => {
+      L.marker([p.lat, p.lng], { icon })
+        .addTo(map)
+        .bindPopup(`<b>${p.name || 'AutoFácil'}</b>`);
+    });
+
   } catch (error) {
     console.error('Error al inicializar el mapa:', error);
   }

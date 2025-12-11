@@ -10,6 +10,49 @@
 		<title>AutoFacil</title>
 		<link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+		<style>
+			/* ================================================================
+			   ESTILOS PARA EL NUEVO SLIDER DE AUTOS DESTACADOS
+			   Manteniendo 100% el diseño original pero mejorando funcionalidad
+			================================================================ */
+			
+			/* Contenedor del track - mantiene diseño original */
+			.app-container6 {
+				display: flex;
+				align-items: flex-start;
+				gap: 16px;
+				transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+				will-change: transform;
+			}
+			
+			/* Asegurar que las imágenes de fondo funcionen correctamente */
+			.card5[style*="background-image"] {
+				background-size: cover !important;
+				background-position: center !important;
+			}
+			
+			/* Responsivo manteniendo proporciones originales */
+			@media (max-width: 1200px) {
+				.card5 { 
+					flex: 0 0 calc(33.33% - 12px); /* 3 tarjetas */
+				}
+			}
+			
+			@media (max-width: 900px) {
+				.card5 { 
+					flex: 0 0 calc(50% - 12px); /* 2 tarjetas */
+				}
+			}
+			
+			@media (max-width: 600px) {
+				.card5 { 
+					flex: 0 0 calc(100% - 12px); /* 1 tarjeta */
+				}
+				.circle-btn1 { right: -10px; }
+				.circle-btn2 { left: -10px; }
+			}
+			
+		</style>
 	</head>
 
 	<body>
@@ -29,7 +72,7 @@
                 <nav class="header-nav" id="main-nav">
                 <ul class="nav-list">
                     <li><a href="#" class="nav-link active">Inicio</a></li>
-                    <li><a href="/todos-los-autos/" class="nav-link">Todos los autos</a></li>
+                    <li><a href="/todos-los-autos/" class="nav-link">Catálogo</a></li>
                     <li><a href="/remates" class="nav-link">Remates</a></li>
                     <li><a href="/nosotros" class="nav-link">Nosotros</a></li>
                     <li><a href="/contacto" class="nav-link">Contacto</a></li>
@@ -39,8 +82,8 @@
                 <!-- Todo lo demás igual -->
                 <div class="header-right">
                 <div class="social-icons">
-                    <a href="#" aria-label="Facebook"><img src="../img/icons/facebook.svg" alt=""></a>
-                    <a href="#" aria-label="Instagram"><img src="../img/icons/instagram.svg" alt=""></a>
+                    <a href="https://www.facebook.com/autofacil.tabasco/" aria-label="Facebook" target="_blank"><img src="../img/icons/facebook.svg" alt=""></a>
+                    <a href="https://www.instagram.com/autofaciltab/" aria-label="Instagram" target="_blank"><img src="../img/icons/instagram.svg" alt=""></a>
                 </div>
                 <a href="/contacto" class="btn-demo hover-bright">Agendar Demo</a>
                 </div>
@@ -69,46 +112,36 @@
 					</div>
 					
 					<div class="app-container4">
-						<div class="button btn1">
-							<div class="button-circle">
-								<object data="assets/button-circle-container/button-icon1.svg" class="button-icon" type="image/svg+xml"></object>
+						<div class="button btn1" data-value="SEDAN">
+							<div class="button-circle" style="background-image: url(assets/button-circle-container/button-icon1.svg); background-position: center; background-repeat: no-repeat;">
 							</div>
-							
 							<p class="button-text">Sedán</p>
 						</div>
-						
-						<div class="button btn2">
-							<div class="button-circle">
-								<object data="assets/button-circle-container/button-icon2.svg" class="button-icon" type="image/svg+xml"></object>
+
+						<div class="button btn2" data-value="SUV">
+							<div class="button-circle" style="background-image: url(assets/button-circle-container/button-icon2.svg); background-position: center; background-repeat: no-repeat;">
 							</div>
-							
 							<p class="button-text">SUV</p>
 						</div>
-						
-						<div class="button btn3">
-							<div class="button-circle">
-								<object data="assets/button-circle-container/button-icon3.svg" class="button-icon" type="image/svg+xml"></object>
+
+						<div class="button btn3" data-value="COUPE">
+							<div class="button-circle" style="background-image: url(assets/button-circle-container/button-icon3.svg); background-position: center; background-repeat: no-repeat;">
 							</div>
-							
 							<p class="button-text">Cupé</p>
 						</div>
-						
-						<div class="button btn4">
-							<div class="button-circle">
-								<object data="assets/button-circle-container/button-icon4.svg" class="button-icon" type="image/svg+xml"></object>
+
+						<div class="button btn4" data-value="HATCHBACK">
+							<div class="button-circle" style="background-image: url(assets/button-circle-container/button-icon4.svg); background-position: center; background-repeat: no-repeat;">
 							</div>
-							
 							<p class="button-text">Hatchback</p>
 						</div>
-						
-						<div class="button btn5">
-							<div class="button-circle">
-								<object data="assets/button-circle-container/button-icon2.svg" class="button-icon" type="image/svg+xml"></object>
+
+						<div class="button btn5" data-value="TRUCK">
+							<div class="button-circle" style="background-image: url(assets/button-circle-container/button-icon2.svg); background-position: center; background-repeat: no-repeat;">
 							</div>
-							
 							<p class="button-text">Camioneta</p>
 						</div>
-					</div>
+						</div>
 				</div>
 				
 				<div class="app-section1">
@@ -126,21 +159,19 @@
                         </div>
                     </div>
                     
-                    <!-- Flechas -->
-					<div class="circle-button circle-btn1" id="featured-prev">
-						<object data="assets/circle-button/circle-button-icon1.svg" type="image/svg+xml"></object>
+                    <!-- Flechas - Manteniendo el diseño original pero con funcionalidad -->
+					<div class="circle-button circle-btn1"id="featured-next" style="background-image: url('assets/circle-button/circle-button-icon1.svg'); background-repeat: no-repeat; background-position: center;">
 					</div>
-					<div class="circle-button circle-btn2" id="featured-next">
-						<object data="assets/circle-button/circle-button-icon2.svg" type="image/svg+xml"></object>
+					<div class="circle-button circle-btn2" id="featured-prev" style="background-image: url('assets/circle-button/circle-button-icon2.svg'); background-repeat: no-repeat; background-position: center;">
 					</div>
 
-					<!-- Puntitos -->
+					<!-- Puntitos - Manteniendo diseño original -->
 					<div class="slider-indicators" id="featured-indicators"></div>
                 </div>
             </div>
 				
 				<!-- INVENTARIO CON FILTROS -->
-				<div class="app-section2">
+				<div class="app-section2" id="app-section2">
 				<div class="container-b container7">
 					<h2 class="container-subtitle">Explora Nuestro Inventario</h2>
 					<p class="container-text1">Encuentra el vehículo perfecto para tus necesidades</p>
@@ -255,8 +286,8 @@
 					</p>
 					
 					<div class="container-a container8">
-						<a href="/contacto"  class="container-btn container-btn1 hover-bright">Agendar Demo</a>
-						<button class="container-btn container-btn2 hover-dark">¿Quieres Vender tu Auto?</button>
+						<a href="/contacto" class="container-btn container-btn1 hover-bright">Agendar Demo</a>
+						<a href="/contacto" class="container-btn container-btn2 hover-dark">¿Quieres Vender tu Auto?</a>
 					</div>
 				</div>
 			</div>
@@ -289,7 +320,7 @@
 					<h3 class="footer-heading">Enlaces Rápidos</h3>
 					<ul class="footer-list">
 						<li><a href="#">Inicio</a></li>
-						<li><a href="/todos-los-autos">Todos los Autos</a></li>
+						<li><a href="/todos-los-autos">Catálogo</a></li>
 						<li><a href="/nosotros">Nosotros</a></li>
 						<li><a href="/contacto">Contacto</a></li>
 					</ul>
@@ -299,10 +330,10 @@
 					<div class="footer-column">
 					<h3 class="footer-heading">Servicios</h3>
 					<ul class="footer-list">
-						<li><a href="#">Comprar un Auto</a></li>
-						<li><a href="#">Vender tu Auto</a></li>
-						<li><a href="#">Opciones de Financiamiento</a></li>
-						<li><a href="#">Valuación de Permuta</a></li>
+						
+						<li><a href="/vende-tu-auto">Vender tu Auto</a></li>
+						<li><a href="/terminos-y-condiciones/">Términos y Condiciones</a></li>
+						<li><a href="/aviso-de-privacidad">Aviso de Privacidad</a></li>
 					</ul>
 					</div>
 
@@ -312,7 +343,9 @@
 					<ul class="footer-contact">
 						<li>
 							<object data="assets/app-icon.svg" type="image/svg+xml"></object>
-							<span>Av. Principal 123, Ciudad de México, CDMX 01234</span>
+							<span>Av. Paseo Tabasco esq. 27 de Febrero, Nueva Villahermosa, 86070.<br />
+Periférico 1408, Tamulté de las Barrancas, 86150.<br />
+Villahermosa, Tabasco.</span>
 						</li>
 						<li>
 							<object data="assets/list-item/list-item-icon1.svg" type="image/svg+xml"></object>
@@ -336,7 +369,7 @@
 					<div class="footer-links">
 					<a href="#" class="footer-link">Política de Privacidad</a>
 					<span class="footer-separator">•</span>
-					<a href="#" class="footer-link">Términos y Condiciones</a>
+					<a href="/terminos-y-condiciones/" class="footer-link">Términos y Condiciones</a>
 					</div>
 				</div>
 			</div>
@@ -372,7 +405,7 @@
 				
 				const yearFill = document.querySelector('.range-slider-fill');
 				const priceFill = document.querySelectorAll('.range-slider-fill')[1];
-				
+
 				// ========================================
 				// 2. FUNCIONES PARA SLIDERS DE RANGO
 				// ========================================
@@ -397,12 +430,11 @@
 					updateSliderFill(priceMin, priceMax, priceFill);
 				}
 				
-				// Event listeners para sliders
 				yearMin.addEventListener('input', updateYear);
 				yearMax.addEventListener('input', updateYear);
 				priceMin.addEventListener('input', updatePrice);
 				priceMax.addEventListener('input', updatePrice);
-				
+
 				// ========================================
 				// 3. CARGAR DATOS DE LA API
 				// ========================================
@@ -436,7 +468,7 @@
 						const minPrice = prices.length > 0 ? Math.min(...prices) : 0;
 						const maxPrice = prices.length > 0 ? Math.max(...prices) : 300000;
 						
-						// Ajustar los sliders para que coincidan con los datos reales
+						// Ajustar los sliders
 						yearMin.min = minYear;
 						yearMin.max = maxYear;
 						yearMin.value = minYear;
@@ -446,22 +478,18 @@
 						yearMax.value = maxYear;
 						
 						priceMin.min = 0;
-						priceMin.max = Math.ceil(maxPrice / 1000) * 1000; // Redondear al siguiente mil
+						priceMin.max = Math.ceil(maxPrice / 1000) * 1000;
 						priceMin.value = 0;
 						
 						priceMax.min = 0;
 						priceMax.max = Math.ceil(maxPrice / 1000) * 1000;
 						priceMax.value = Math.ceil(maxPrice / 1000) * 1000;
 						
-						// Actualizar displays
 						updateYear();
 						updatePrice();
 						
 						renderBrands();
 						applyFiltersAndSort();
-						
-						// Mostrar mensaje informativo
-						console.log(`Cargados ${allCars.length} vehículos. Rango: ${minYear}-${maxYear}, Precio: $${minPrice}-$${maxPrice}`);
 						
 					} catch (err) {
 						countEl.textContent = 'Error cargando vehículos';
@@ -480,7 +508,6 @@
 						<label><input type="checkbox" name="brand" value="${brand}"> ${brand.replace(/_/g, ' ')}</label>
 					`).join('');
 					
-					// Reconectar event listeners después de renderizar
 					setupFilterEvents();
 				}
 				
@@ -505,7 +532,7 @@
 								${car.isFeatured ? '<span class="badge">Destacado</span>' : ''}
 							</div>
 							<div class="car-info">
-								<h3>${car.title || `${car.brand} ${car.model}`}</h3>
+								<h3>${car.title || `${car.brand.replace(/_/g,' ')} ${car.model}`}</h3>
 								<p class="year">${car.year}</p>
 								<div class="specs">
 									<div class="spec-item">
@@ -536,19 +563,16 @@
 				function filterCars() {
 					if (allCars.length === 0) return [];
 					
-					// Obtener valores actuales de los sliders
 					const currentMinYear = parseInt(yearMin.value);
 					const currentMaxYear = parseInt(yearMax.value);
 					const currentMinPrice = parseInt(priceMin.value);
 					const currentMaxPrice = parseInt(priceMax.value);
 					
-					// Obtener valores MÁXIMOS posibles de los sliders (no los actuales)
 					const maxPossibleYear = parseInt(yearMax.max);
 					const minPossibleYear = parseInt(yearMin.min);
 					const maxPossiblePrice = parseInt(priceMax.max);
 					const minPossiblePrice = parseInt(priceMin.min);
 					
-					// Verificar si los sliders están en sus valores predeterminados (sin filtro)
 					const isYearDefault = (currentMinYear === minPossibleYear && currentMaxYear === maxPossibleYear);
 					const isPriceDefault = (currentMinPrice === minPossiblePrice && currentMaxPrice === maxPossiblePrice);
 					
@@ -557,33 +581,11 @@
 					const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(i => i.value);
 					
 					return allCars.filter(car => {
-						// Filtrar por año - SOLO si no está en valores predeterminados
-						if (!isYearDefault) {
-							const yearMatch = car.year >= currentMinYear && car.year <= currentMaxYear;
-							if (!yearMatch) return false;
-						}
-						
-						// Filtrar por precio - SOLO si no está en valores predeterminados
-						if (!isPriceDefault) {
-							const priceMatch = car.price >= currentMinPrice && car.price <= currentMaxPrice;
-							if (!priceMatch) return false;
-						}
-						
-						// Filtrar por marca
-						if (selectedBrands.length > 0 && !selectedBrands.includes(car.brand)) {
-							return false;
-						}
-						
-						// Filtrar por tipo de motor
-						if (selectedFuels.length > 0 && !selectedFuels.includes(car.fuelTypeNormalized)) {
-							return false;
-						}
-						
-						// Filtrar por tipo de vehículo
-						if (selectedTypes.length > 0 && !selectedTypes.includes(car.type)) {
-							return false;
-						}
-						
+						if (!isYearDefault && (car.year < currentMinYear || car.year > currentMaxYear)) return false;
+						if (!isPriceDefault && (car.price < currentMinPrice || car.price > currentMaxPrice)) return false;
+						if (selectedBrands.length > 0 && !selectedBrands.includes(car.brand)) return false;
+						if (selectedFuels.length > 0 && !selectedFuels.includes(car.fuelTypeNormalized)) return false;
+						if (selectedTypes.length > 0 && !selectedTypes.includes(car.type)) return false;
 						return true;
 					});
 				}
@@ -596,15 +598,11 @@
 					
 					return [...cars].sort((a, b) => {
 						switch (sortValue) {
-							case 'price-asc':
-								return a.price - b.price;
-							case 'price-desc':
-								return b.price - a.price;
-							case 'year-desc':
-								return b.year - a.year;
+							case 'price-asc': return a.price - b.price;
+							case 'price-desc': return b.price - a.price;
+							case 'year-desc': return b.year - a.year;
 							case 'featured':
 							default:
-								// Primero los destacados, luego por año más reciente
 								if (a.isFeatured && !b.isFeatured) return -1;
 								if (!a.isFeatured && b.isFeatured) return 1;
 								return b.year - a.year;
@@ -635,12 +633,10 @@
 					const currentMinPrice = parseInt(priceMin.value);
 					const currentMaxPrice = parseInt(priceMax.value);
 					
-					// Solo mostrar filtro de año si NO está en el rango completo
 					if (currentMinYear > parseInt(yearMin.min) || currentMaxYear < parseInt(yearMax.max)) {
 						activeFiltersContainer.appendChild(createActiveFilterTag(`Año: ${currentMinYear}-${currentMaxYear}`, 'year'));
 					}
 					
-					// Solo mostrar filtro de precio si NO está en el rango completo
 					if (currentMinPrice > 0 || currentMaxPrice < parseInt(priceMax.max)) {
 						activeFiltersContainer.appendChild(createActiveFilterTag(
 							`$${Number(currentMinPrice).toLocaleString()} - $${Number(currentMaxPrice).toLocaleString()}`,
@@ -650,26 +646,17 @@
 					
 					const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(i => i.value);
 					if (selectedBrands.length > 0) {
-						activeFiltersContainer.appendChild(createActiveFilterTag(
-							`Marcas: ${selectedBrands.join(', ')}`,
-							'brand'
-						));
+						activeFiltersContainer.appendChild(createActiveFilterTag(`Marcas: ${selectedBrands.join(', ')}`, 'brand'));
 					}
 					
 					const selectedFuels = Array.from(document.querySelectorAll('input[name="fuel"]:checked')).map(i => i.value);
 					if (selectedFuels.length > 0) {
-						activeFiltersContainer.appendChild(createActiveFilterTag(
-							`Motor: ${selectedFuels.join(', ')}`,
-							'fuel'
-						));
+						activeFiltersContainer.appendChild(createActiveFilterTag(`Motor: ${selectedFuels.join(', ')}`, 'fuel'));
 					}
 					
 					const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(i => i.value);
 					if (selectedTypes.length > 0) {
-						activeFiltersContainer.appendChild(createActiveFilterTag(
-							`Tipo: ${selectedTypes.join(', ')}`,
-							'type'
-						));
+						activeFiltersContainer.appendChild(createActiveFilterTag(`Tipo: ${selectedTypes.join(', ')}`, 'type'));
 					}
 				}
 				
@@ -677,24 +664,20 @@
 					const div = document.createElement('div');
 					div.className = 'active-filter-tag';
 					div.innerHTML = `${text} <button data-filter="${type}">×</button>`;
-					
-					div.querySelector('button').addEventListener('click', function() {
-						clearFilter(type);
-					});
-					
+					div.querySelector('button').addEventListener('click', () => clearFilter(type));
 					return div;
 				}
 				
 				function clearFilter(type) {
 					switch (type) {
 						case 'year':
-							yearMin.value = 2020;
-							yearMax.value = 2024;
+							yearMin.value = yearMin.min;
+							yearMax.value = yearMax.max;
 							updateYear();
 							break;
 						case 'price':
 							priceMin.value = 0;
-							priceMax.value = 300000;
+							priceMax.value = priceMax.max;
 							updatePrice();
 							break;
 						case 'brand':
@@ -706,6 +689,7 @@
 						case 'type':
 							document.querySelectorAll('input[name="type"]').forEach(c => c.checked = false);
 							break;
+							break;
 					}
 					applyFiltersAndSort();
 				}
@@ -714,28 +698,22 @@
 				// 10. CONFIGURAR EVENTOS DE FILTROS
 				// ========================================
 				function setupFilterEvents() {
-					// Checkboxes
 					document.querySelectorAll('input[type="checkbox"]').forEach(el => {
 						el.addEventListener('change', applyFiltersAndSort);
 					});
 					
-					// Sliders (ya tienen event listeners para updateYear/updatePrice)
 					yearMin.addEventListener('change', applyFiltersAndSort);
 					yearMax.addEventListener('change', applyFiltersAndSort);
 					priceMin.addEventListener('change', applyFiltersAndSort);
 					priceMax.addEventListener('change', applyFiltersAndSort);
 					
-					// Ordenar
 					sortSelect.addEventListener('change', applyFiltersAndSort);
 					
-					// Reset
 					resetBtn.addEventListener('click', () => {
-						// Restablecer a valores dinámicos (basados en datos reales)
-						yearMin.value = parseInt(yearMin.min);
-						yearMax.value = parseInt(yearMax.max);
+						yearMin.value = yearMin.min;
+						yearMax.value = yearMax.max;
 						priceMin.value = 0;
-						priceMax.value = parseInt(priceMax.max);
-						
+						priceMax.value = priceMax.max;
 						updateYear();
 						updatePrice();
 						document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
@@ -743,9 +721,9 @@
 						applyFiltersAndSort();
 					});
 				}
-				
+
 				// ========================================
-				// 11. SLIDER DE AUTOS DESTACADOS
+				// 11. AUTOS DESTACADOS - MEJORADA PERO MANTENIENDO DISEÑO
 				// ========================================
 				async function loadFeaturedCars() {
 					try {
@@ -758,12 +736,13 @@
 						
 						if (cars.length === 0) {
 							container.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:4rem;color:#999;">No hay autos destacados en este momento</p>';
+							indicators.innerHTML = '';
 							return;
 						}
 						
-						// Renderizar tarjetas
+						// Renderizar tarjetas MANTENIENDO DISEÑO ORIGINAL
 						container.innerHTML = cars.map(car => `
-							<div class="card5" style="background-image: url('http://54.205.241.136${car.primaryImage || '/img/placeholder.jpg'}'); background-size: cover;">
+							<div class="card5" style="background-image: url('http://54.205.241.136${car.primaryImage || '/img/placeholder.jpg'}');">
 								<button class="btn-badge card-btn-badge2 hover-bright">Destacado</button>
 								<h2 class="card-subtitle3 subtitle">${car.title || `${car.brand} ${car.model}`}</h2>
 								<p class="card-text-paragraph3 text1">${car.year}</p>
@@ -771,7 +750,6 @@
 							</div>
 						`).join('');
 						
-						// Inicializar slider de destacados
 						initFeaturedSlider();
 					} catch (err) {
 						console.error('Error cargando destacados:', err);
@@ -779,192 +757,285 @@
 				}
 				
 				let featuredIndex = 0;
+				let cardsPerView = 4;
+				
 				function initFeaturedSlider() {
 					const container = document.getElementById('featured-slider');
-					const cards = container.children;
-					const totalCards = cards.length;
-					const cardsPerView = 4;
-					const totalPages = Math.ceil(totalCards / cardsPerView);
+					const cards = container.querySelectorAll('.card5');
+					const btnPrev = document.getElementById('featured-prev');
+					const btnNext = document.getElementById('featured-next');
+					const indicatorsContainer = document.getElementById('featured-indicators');
 					
-					// Crear indicadores
-					const indicators = document.getElementById('featured-indicators');
-					indicators.innerHTML = '';
-					
-					for (let i = 0; i < totalPages; i++) {
-						const dot = document.createElement('div');
-						dot.className = 'slider-indicator';
-						if (i === 0) dot.classList.add('active');
-						dot.addEventListener('click', () => goToFeaturedPage(i));
-						indicators.appendChild(dot);
+					if (cards.length === 0) {
+						indicatorsContainer.innerHTML = '';
+						return;
 					}
 					
-					function goToFeaturedPage(index) {
-						featuredIndex = index;
-						const offset = -index * 100;
-						container.style.transform = `translateX(${offset}%)`;
+					// Calcular cuántas tarjetas caben según el ancho de pantalla
+					function updateCardsPerView() {
+						const width = window.innerWidth;
+						if (width < 600) cardsPerView = 1;
+						else if (width < 900) cardsPerView = 2;
+						else if (width < 1200) cardsPerView = 3;
+						else cardsPerView = 4;
 						
-						document.querySelectorAll('#featured-indicators .slider-indicator').forEach((dot, i) => {
-							dot.classList.toggle('active', i === index);
+						// Ajustar el índice si es necesario
+						const maxIndex = Math.max(0, cards.length - cardsPerView);
+						if (featuredIndex > maxIndex) {
+							featuredIndex = maxIndex;
+						}
+						
+						updateSlider();
+						updateIndicators();
+					}
+					
+					// Actualizar posición del slider
+					function updateSlider() {
+						if (cards.length === 0 || cardsPerView >= cards.length) {
+							container.style.transform = 'translateX(0)';
+							return;
+						}
+						
+						const cardWidth = cards[0].offsetWidth + 16; // Incluye el gap
+						container.style.transform = `translateX(${-featuredIndex * cardWidth}px)`;
+					}
+					
+					// Actualizar indicadores
+					function updateIndicators() {
+						const totalCards = cards.length;
+						if (totalCards <= cardsPerView) {
+							indicatorsContainer.innerHTML = '';
+							indicatorsContainer.style.display = 'none';
+							return;
+						}
+						
+						indicatorsContainer.style.display = 'flex';
+						const totalPages = Math.max(1, totalCards - cardsPerView + 1);
+						indicatorsContainer.innerHTML = '';
+						
+						for (let i = 0; i < totalPages; i++) {
+							const dot = document.createElement('button');
+							dot.className = 'slider-indicator';
+							if (i === featuredIndex) dot.classList.add('active');
+							dot.setAttribute('aria-label', `Ir a slide ${i + 1}`);
+							indicatorsContainer.appendChild(dot);
+							
+							dot.addEventListener('click', () => {
+								featuredIndex = i;
+								updateSlider();
+								highlightDot();
+							});
+						}
+					}
+					
+					// Resaltar dot activo
+					function highlightDot() {
+						const dots = indicatorsContainer.querySelectorAll('.slider-indicator');
+						dots.forEach((dot, i) => {
+							dot.classList.toggle('active', i === featuredIndex);
 						});
 					}
 					
-					// Botones de navegación
-					document.getElementById('featured-prev')?.addEventListener('click', () => {
-						featuredIndex = featuredIndex <= 0 ? totalPages - 1 : featuredIndex - 1;
-						goToFeaturedPage(featuredIndex);
+					// Eventos para flechas
+					btnPrev.addEventListener('click', () => {
+						if (featuredIndex > 0) {
+							featuredIndex--;
+							updateSlider();
+							highlightDot();
+						}
 					});
 					
-					document.getElementById('featured-next')?.addEventListener('click', () => {
-						featuredIndex = featuredIndex >= totalPages - 1 ? 0 : featuredIndex + 1;
-						goToFeaturedPage(featuredIndex);
+					btnNext.addEventListener('click', () => {
+						const maxIndex = Math.max(0, cards.length - cardsPerView);
+						if (featuredIndex < maxIndex) {
+							featuredIndex++;
+							updateSlider();
+							highlightDot();
+						}
 					});
 					
-					// Iniciar en página 0
-					goToFeaturedPage(0);
+					// Inicializar
+					updateCardsPerView();
+					updateIndicators();
+					
+					// Escuchar cambios en el tamaño de ventana
+					let resizeTimeout;
+					window.addEventListener('resize', () => {
+						clearTimeout(resizeTimeout);
+						resizeTimeout = setTimeout(() => {
+							updateCardsPerView();
+						}, 150);
+					});
+					
+					// Inicializar posición
+					updateSlider();
 				}
-				
 
+				// ========================================
+				// 12. HERO SLIDER MODERNO – SOPORTA VIDEO E IMAGEN
+				// ========================================
 				async function loadHeroSlider() {
+					const slidesContainer = document.getElementById('hero-slides');
+					const dotsContainer = document.getElementById('hero-dots');
+
 					try {
-						const res = await fetch(API_HERO_SLIDER)
-						const slides = await res.json()
+						const res = await fetch(API_HERO_SLIDER);
+						const slides = await res.json();
+
+						console.log('Slides cargados:', slides);
 
 						if (!Array.isArray(slides) || slides.length === 0) {
-						document.getElementById('hero-slides').innerHTML = `
-							<div class="hero-slide active" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./img/sliderHome/slider1.jpg'); background-size:cover; background-position:center;">
-							<div class="app-container1">
-								<h1 class="app-title">Maneja el Auto de tus Sueños Hoy</h1>
-								<p class="app-text-paragraph1">Descubre nuestra colección exclusiva de vehículos premium con aprobación de crédito instantánea</p>
-								<div class="container-a container5">
-								<button class="container-btn container-btn1 hover-bright">Agendar Demo</button>
-								<button class="container-btn container-btn2 hover-dark">¿Quieres Vender tu Auto?</button>
+							slidesContainer.innerHTML = `
+								<div class="hero-slide active">
+									<div class="hero-media" style="background-image: url('./img/sliderHome/slider1.jpg');"></div>
+									<div class="hero-overlay"></div>
+									<div class="app-container1 hero-content">
+										<h1 class="app-title">Maneja el Auto de tus Sueños Hoy</h1>
+										<p class="app-text-paragraph1">Descubre nuestra colección exclusiva de vehículos premium con aprobación de crédito instantánea</p>
+										<div class="container-a container5">
+											<a href="/contacto" class="container-btn container-btn1 hover-bright">Agendar Demo</a>
+											<a href="/contacto" class="container-btn container-btn2 hover-dark">¿Quieres Vender tu Auto?</a>
+										</div>
+									</div>
 								</div>
-							</div>
-							</div>
-						`
-						document.getElementById('hero-dots').innerHTML = '<div class="app-circle-button active"></div>'
-						initHeroSlider()
-						return
+							`;
+							dotsContainer.innerHTML = '<div class="app-circle-button active"></div>';
+							initHeroSlider();
+							return;
 						}
 
-						// Renderizar slides
-						const slidesHTML = slides.map((slide, i) => `
-						<div class="hero-slide ${i === 0 ? 'active' : ''}" 
-							style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('http://54.205.241.136${slide.imageUrl}'); background-size:cover; background-position:center;">
-							<div class="app-container1">
-							<h1 class="app-title">${slide.title || 'Maneja el Auto de tus Sueños Hoy'}</h1>
-							<p class="app-text-paragraph1">${slide.subtitle || 'Descubre nuestra colección exclusiva de vehículos premium con aprobación de crédito instantánea'}</p>
-							<div class="container-a container5">
-								<a href="/contacto" class="container-btn container-btn1 hover-bright">Agendar Demo</a>
-								<button class="container-btn container-btn2 hover-dark">¿Quieres Vender tu Auto?</button>
-							</div>
-							</div>
-						</div>
-						`).join('')
+						const slidesHTML = slides.map((slide, i) => {
+							const hasVideo = slide.videoUrl && slide.videoUrl.trim() !== '';
+							const mediaUrl = hasVideo 
+								? `http://54.205.241.136${slide.videoUrl}` 
+								: `http://54.205.241.136${slide.imageUrl}`;
 
-						document.getElementById('hero-slides').innerHTML = slidesHTML
+							return `
+							<div class="hero-slide ${i === 0 ? 'active' : ''}">
+								${hasVideo ? `
+									<video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="http://54.205.241.136${slide.thumbnailUrl || ''}">
+										<source src="${mediaUrl}" type="video/mp4">
+									</video>
+								` : `
+									<div class="hero-media" style="background-image:url('${mediaUrl}')"></div>
+								`}
+								<div class="hero-overlay"></div>
+								<div class="app-container1 hero-content">
+									<h1 class="app-title">${slide.title || 'Maneja el Auto de tus Sueños Hoy'}</h1>
+									<p class="app-text-paragraph1">${slide.subtitle || 'Descubre nuestra colección exclusiva de vehículos premium con aprobación de crédito instantánea'}</p>
+									<div class="container-a container5">
+										<a href="/contacto" class="container-btn container-btn1 hover-bright">Agendar Demo</a>
+										<a href="/contacto" class="container-btn container-btn2 hover-dark">¿Quieres Vender tu Auto?</a>
+									</div>
+								</div>
+							</div>`;
+						}).join('');
 
-						// Renderizar puntitos
-						const dotsHTML = slides.map((_, i) => `
-						<div class="app-circle-button app-circle-btn${i + 1} ${i === 0 ? 'active' : ''}"></div>
-						`).join('')
-						document.getElementById('hero-dots').innerHTML = dotsHTML
-
-						// Inicializar slider
-						initHeroSlider()
+						slidesContainer.innerHTML = slidesHTML;
+						dotsContainer.innerHTML = slides.map((_, i) => `<div class="app-circle-button ${i===0?'active':''}"></div>`).join('');
+						initHeroSlider();
 
 					} catch (err) {
-						console.error('Error cargando hero slider:', err)
-						// Fallback silencioso con imagen por defecto
+						console.error('Error cargando hero slider:', err);
+						slidesContainer.innerHTML = `<div class="hero-slide active"><div class="hero-media" style="background-image:url('./img/sliderHome/slider1.jpg')"></div><div class="hero-overlay"></div><div class="app-container1 hero-content"><h1 class="app-title">Bienvenido a AutoFácil</h1></div></div>`;
+						dotsContainer.innerHTML = '<div class="app-circle-button active"></div>';
+						initHeroSlider();
 					}
-					}
+				}
 
-				// ========================================
-				// 12. HERO SLIDER (FONDO QUE CAMBIA)
-				// ========================================
 				function initHeroSlider() {
-					const heroSlides = document.querySelectorAll('.hero-slide')
-					const heroDots = document.querySelectorAll('.app-circle-button')
-					let heroCurrent = 0
-					const heroTotal = heroSlides.length
+					const slides = document.querySelectorAll('.hero-slide');
+					const dots = document.querySelectorAll('.app-circle-button');
+					let current = 0;
+					const total = slides.length;
 
-					function goToHeroSlide(index) {
-						heroSlides[heroCurrent].classList.remove('active')
-						heroDots[heroCurrent].classList.remove('active')
-						heroCurrent = index
-						heroSlides[heroCurrent].classList.add('active')
-						heroDots[heroCurrent].classList.add('active')
+					document.querySelectorAll('.hero-video').forEach(v => v.play().catch(() => {}));
+
+					function show(n) {
+						slides[current].classList.remove('active');
+						dots[current].classList.remove('active');
+						current = n;
+						slides[current].classList.add('active');
+						dots[current].classList.add('active');
+						const vid = slides[current].querySelector('video');
+						if (vid) { vid.currentTime = 0; vid.play().catch(() => {}); }
 					}
 
-					heroDots.forEach((dot, i) => {
-						dot.addEventListener('click', () => goToHeroSlide(i))
-					})
+					dots.forEach((d,i) => d.addEventListener('click', () => show(i)));
+					setInterval(() => show((current + 1) % total), 7000);
+				}
 
-					// Auto play
-					setInterval(() => {
-						goToHeroSlide((heroCurrent + 1) % heroTotal)
-					}, 6000)
-					}
-				
 				// ========================================
 				// 13. INICIALIZACIÓN
 				// ========================================
-				function init() {
-					// Inicializar sliders de rango
-					updateYear();
-					updatePrice();
-					
-					// Cargar datos
-					loadCars();
-					loadFeaturedCars();
-					
-					// Inicializar sliders
-					initHeroSlider();
-					
-					// Configurar eventos básicos
-					setupFilterEvents();
-				}
-				
-				// Iniciar todo
-				init();
+				updateYear();
+				updatePrice();
+				loadCars();
 				loadHeroSlider();
+				loadFeaturedCars();
+				setupFilterEvents();
+
+				// === MENÚ HAMBURGUESA ===
+				const hamburger = document.getElementById('hamburger');
+				const nav = document.getElementById('main-nav');
+				const body = document.body;
+				let overlay = document.querySelector('.menu-overlay');
+				if (!overlay) {
+					overlay = document.createElement('div');
+					overlay.className = 'menu-overlay';
+					body.appendChild(overlay);
+				}
+				hamburger.addEventListener('click', () => {
+					nav.classList.toggle('open');
+					body.classList.toggle('menu-open');
+					hamburger.querySelector('i').classList.toggle('fa-bars');
+					hamburger.querySelector('i').classList.toggle('fa-xmark');
+				});
+				overlay.addEventListener('click', () => {
+					nav.classList.remove('open');
+					body.classList.remove('menu-open');
+					hamburger.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+				});
+				document.querySelectorAll('.nav-link').forEach(link => {
+					link.addEventListener('click', () => {
+						nav.classList.remove('open');
+						body.classList.remove('menu-open');
+						hamburger.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+					});
+				});
 			});
 		</script>
 
 		<script>
-            // === MENÚ HAMBURGUESA FULL-SCREEN ===
-            const hamburger = document.getElementById('hamburger');
-            const nav = document.getElementById('main-nav');
-            const body = document.body;
+			// Selecciona todos los botones
+			document.querySelectorAll('.app-container4 .button').forEach(button => {
+				button.addEventListener('click', () => {
+					const value = button.getAttribute('data-value');
+					const checkbox = document.querySelector(`input[name="type"][value="${value}"]`);
 
-            // Crear overlay si no existe
-            let overlay = document.querySelector('.menu-overlay');
-            if (!overlay) {
-            overlay = document.createElement('div');
-            overlay.className = 'menu-overlay';
-            body.appendChild(overlay);
-            }
+					if (checkbox) {
+					// Si ya estaba seleccionado, lo deseleccionamos
+					if (checkbox.checked) {
+						checkbox.checked = false;
+						checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+					} else {
+						// Deseleccionamos todos los demás
+						document.querySelectorAll('input[name="type"]').forEach(cb => cb.checked = false);
 
-            hamburger.addEventListener('click', () => {
-            nav.classList.toggle('open');
-            body.classList.toggle('menu-open');
-            hamburger.querySelector('i').classList.toggle('fa-bars');
-            hamburger.querySelector('i').classList.toggle('fa-xmark');
-            });
+						// Seleccionamos el actual
+						checkbox.checked = true;
+						checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+					}
+					}
 
-            overlay.addEventListener('click', () => {
-            nav.classList.remove('open');
-            body.classList.remove('menu-open');
-            hamburger.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
-            });
+					// Scroll hacia la sección
+					const section = document.getElementById('app-section2');
+					if (section) {
+					section.scrollIntoView({ behavior: 'smooth' });
+					}
+				});
+			});
 
-            document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('open');
-                body.classList.remove('menu-open');
-                hamburger.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
-            });
-            });
-        </script>
+		</script>
 	</body>
 </html>

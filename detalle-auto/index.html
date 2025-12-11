@@ -11,19 +11,82 @@
   <link rel="icon" type="image/png" href="../favicon.png">
   <style>
     .loading { text-align:center; padding:4rem; color:#666; font-size:1.5rem; }
-    .main-image { width:100%; height:500px; object-fit:cover; border-radius:12px; }
-    .thumbnail { width:100%; height:100px; object-fit:cover; cursor:pointer; border:3px solid transparent; border-radius:8px; transition:all .3s; }
-    .thumbnail.active { border-color:#dc2626; transform:scale(1.05); }
+    .main-image { 
+      width:100%; 
+      height:500px; 
+      object-fit:cover; 
+      border-radius:12px; 
+      display: block;
+    }
+    .main-video {
+      width: 100%;
+      height: 500px;
+      border-radius: 12px;
+      object-fit: cover;
+      display: block;
+    }
+    .thumbnail { 
+      width:100%; 
+      height:100px; 
+      object-fit:cover; 
+      cursor:pointer; 
+      border:3px solid transparent; 
+      border-radius:8px; 
+      transition:all .3s; 
+    }
+    .thumbnail.active { 
+      border-color:#dc2626; 
+      transform:scale(1.05); 
+    }
+    /* Estilo para thumbnails de video */
+    .video-thumb {
+      position: relative;
+    }
+    .video-thumb::after {
+      content: '▶';
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 50%;
+      font-size: 12px;
+    }
+    /* Controles de video */
+    .video-controls-overlay {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+      z-index: 10;
+    }
+    .video-control-btn {
+      background: rgba(0,0,0,0.7);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+    }
+    .video-control-btn:hover {
+      background: rgba(0,0,0,0.9);
+    }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
 </head>
 <body>
 	<header class="app-header">
 		<div class="header-container">
 			<h1 class="header-logo"><span>AutoFácil - Crédito Inmediato</span></h1>
 
-      <!-- BOTÓN HAMBURGUESA (nuevo) -->
+      <!-- BOTÓN HAMBURGUESA -->
     <button class="hamburger" aria-label="Menú" id="hamburger">
       <i class="fas fa-bars"></i>
     </button>
@@ -31,7 +94,7 @@
 			<nav class="header-nav"" id="main-nav">
         <ul class="nav-list">
           <li><a href="../" class="nav-link">Inicio</a></li>
-          <li><a href="../todos-los-autos" class="nav-link">Todos los autos</a></li>
+          <li><a href="../todos-los-autos" class="nav-link">Catálogo</a></li>
           <li><a href="../remates" class="nav-link">Remates</a></li>
           <li><a href="../nosotros" class="nav-link">Nosotros</a></li>
           <li><a href="../contacto" class="nav-link">Contacto</a></li>
@@ -57,7 +120,7 @@
 
 					<div class="app-container2">
 						<div class="app-container3">
-						<!-- IMÁGENES -->
+						<!-- IMÁGENES Y VIDEOS -->
 							<div class="card1" id="car-detail">
 								<div class="loading">Cargando vehículo...</div>
 							</div>
@@ -67,50 +130,8 @@
 						</div>
 
             <div class="card6" id="car-sidebar">
-              <div class="card-vehicle-detail4">
-                <h2 class="card-subtitle3">BMW M5 Competition</h2>
-                <p class="card-text-paragraph3">2024 • Sedán</p>
-              </div>
-              
-              <div class="card-vehicle-detail5">
-                <p class="card-text-paragraph4 text-blue">Precio</p>
-                <h2 class="card-subtitle4">$125,000</h2>
-              </div>
-              
-              <button class="card-btn4 hover-bright">Agendar Demo</button>
-              
-              <div class="card-vehicle-detail6">
-                <p class="card-text-heading">Financiamiento Disponible</p>
-                <p class="card-text-paragraph5 text-blue">
-                  Obtén aprobación de crédito instantánea con nuestras opciones de financiamiento flexibles. ¡Maneja hoy mismo!
-                </p>
-                <p class="card-text-btn text1">Más Información →</p>
-              </div>
-              
-              <div class="card-vehicle-detail7">
-                <div class="list-item container16">
-                  <object data="../assets/list-item/list-item-icon3.svg" class="list-item-icon" type="image/svg+xml"></object>
-                  <p class="list-item-text">Reporte de Historial Gratuito</p>
-                </div>
-                
-                <div class="list-item container17">
-                  <object data="../assets/list-item/list-item-icon3.svg" class="list-item-icon" type="image/svg+xml"></object>
-                  <p class="list-item-text">Garantía de Devolución de 7 Días</p>
-                </div>
-                
-                <div class="list-item container18">
-                  <object data="../assets/list-item/list-item-icon3.svg" class="list-item-icon" type="image/svg+xml"></object>
-                  <p class="list-item-text">Opciones Certificadas de Segunda Mano</p>
-                </div>
-              </div>
+              <!-- El contenido del sidebar se cargará dinámicamente -->
             </div>
-
-
-
-
-
-						<!-- CARD LATERAL FIJO -->
-						<!-- <div class="card6" id="car-sidebar"></div> -->
 					</div>
 			</div>
 			
@@ -140,7 +161,7 @@
 						<h3 class="footer-heading">Enlaces Rápidos</h3>
 						<ul class="footer-list">
 							<li><a href="../">Inicio</a></li>
-							<li><a href="/todos-los-autos">Todos los Autos</a></li>
+							<li><a href="/todos-los-autos">Catálogo</a></li>
 							<li><a href="#">Nosotros</a></li>
 							<li><a href="/contacto">Contacto</a></li>
 						</ul>
@@ -149,10 +170,10 @@
 					<div class="footer-column">
 						<h3 class="footer-heading">Servicios</h3>
 						<ul class="footer-list">
-							<li><a href="#">Comprar un Auto</a></li>
-							<li><a href="#">Vender tu Auto</a></li>
-							<li><a href="#">Opciones de Financiamiento</a></li>
-							<li><a href="#">Valuación de Permuta</a></li>
+							
+							<li><a href="/vende-tu-auto">Vender tu Auto</a></li>
+							<li><a href="/terminos-y-condiciones/">Términos y Condiciones</a></li>
+							<li><a href="/aviso-de-privacidad">Aviso de Privacidad</a></li>
 						</ul>
 					</div>
 						<!-- Columna 4: Contáctanos -->
@@ -161,7 +182,9 @@
 						<ul class="footer-contact">
 							<li>
 								<object data="../../assets/app-icon.svg" type="image/svg+xml"></object>
-								<span>Av. Principal 123, Ciudad de México, CDMX 01234</span>
+								<span>Av. Paseo Tabasco esq. 27 de Febrero, Nueva Villahermosa, 86070.<br />
+Periférico 1408, Tamulté de las Barrancas, 86150.<br />
+Villahermosa, Tabasco.</span>
 							</li>
 							<li>
 								<object data="../../assets/list-item/list-item-icon1.svg" type="image/svg+xml"></object>
@@ -184,7 +207,7 @@
 					<div class="footer-links">
 						<a href="#" class="footer-link">Política de Privacidad</a>
 						<span class="footer-separator">•</span>
-						<a href="#" class="footer-link">Términos y Condiciones</a>
+						<a href="/terminos-y-condiciones/" class="footer-link">Términos y Condiciones</a>
 					</div>
 				</div>
 			</div>
@@ -201,17 +224,88 @@ const carId = urlParams.get('id')
 let images = []
 let currentIndex = 0
 let autoSlideInterval = null
+let currentVideo = null
 
-// CAMBIAR IMAGEN PRINCIPAL
-function changeMainImage(index) {
+// DETECTAR TIPO DE MEDIO
+function getMediaType(item) {
+  if (item.mediaType === 'VIDEO') return 'video'
+  if (item.url.includes('.mp4') || item.url.includes('.mov') || item.url.includes('.avi')) return 'video'
+  return 'image'
+}
+
+// OBTENER THUMBNAIL PARA VIDEO
+function getVideoThumbnail(item) {
+  if (item.thumbnailUrl) return 'http://54.205.241.136' + item.thumbnailUrl
+  return 'http://54.205.241.136' + item.url.replace('.mp4', '.jpg').replace('.mov', '.jpg')
+}
+
+// CAMBIAR MEDIO PRINCIPAL
+function changeMainMedia(index) {
   if (images.length === 0) return
   currentIndex = index
 
-  const imgUrl = 'http://54.205.241.136' + images[index].url
-  const main = document.querySelector('.card-vehicle-detail1')
-  if (main) main.style.backgroundImage = `url('${imgUrl}')`
+  const item = images[index]
+  const mediaType = getMediaType(item)
+  
+  // Obtener el contenedor principal
+  const mainContainer = document.querySelector('.card-vehicle-detail1')
+  if (!mainContainer) return
+  
+  // Limpiar el contenedor principal
+  mainContainer.innerHTML = ''
+  
+  // Remover estilo background-image anterior
+  mainContainer.style.backgroundImage = 'none'
+  
+  if (mediaType === 'video') {
+    // Crear elemento de video
+    const video = document.createElement('video')
+    video.src = 'http://54.205.241.136' + item.url
+    video.className = 'main-video'
+    video.autoplay = true
+    video.loop = true
+    video.muted = true // Muteado para autoplay
+    video.controls = false // No mostrar controles nativos
+    video.playsInline = true
+    
+    // Añadir controles personalizados
+    const controlsDiv = document.createElement('div')
+    controlsDiv.className = 'video-controls-overlay'
+    controlsDiv.innerHTML = `
+      <button class="video-control-btn" onclick="togglePlayPause(this, event)">
+        <i class="fas fa-pause"></i> Pausar
+      </button>
+      <button class="video-control-btn" onclick="toggleMute(this, event)">
+        <i class="fas fa-volume-up"></i> Sonido
+      </button>
+    `
+    
+    // Añadir elementos al contenedor
+    mainContainer.appendChild(video)
+    mainContainer.appendChild(controlsDiv)
+    
+    // Guardar referencia al video actual
+    currentVideo = video
+    
+    // Añadir botón destacado si es necesario
+    if (document.querySelector('.card-btn-badge')) {
+      mainContainer.appendChild(document.querySelector('.card-btn-badge'))
+    }
+    
+  } else {
+    // Usar imagen como background (como estaba originalmente)
+    const imgUrl = 'http://54.205.241.136' + item.url
+    mainContainer.style.backgroundImage = `url('${imgUrl}')`
+    mainContainer.style.backgroundSize = 'cover'
+    mainContainer.style.backgroundPosition = 'center'
+    
+    // Añadir botón destacado si es necesario
+    if (document.querySelector('.card-btn-badge')) {
+      mainContainer.appendChild(document.querySelector('.card-btn-badge'))
+    }
+  }
 
-  // Actualizar thumbnails
+  // Actualizar thumbnails (mantener diseño original)
   document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
     if (i === index) {
       thumb.style.border = '4px solid #dc2626'
@@ -223,23 +317,67 @@ function changeMainImage(index) {
   })
 }
 
+// Control de play/pause para videos
+function togglePlayPause(button, e) {
+  e.stopPropagation()
+  if (currentVideo) {
+    if (currentVideo.paused) {
+      currentVideo.play()
+      button.innerHTML = '<i class="fas fa-pause"></i> Pausar'
+    } else {
+      currentVideo.pause()
+      button.innerHTML = '<i class="fas fa-play"></i> Reproducir'
+    }
+  }
+}
+
+// Control de mute para videos
+function toggleMute(button, e) {
+  e.stopPropagation()
+  if (currentVideo) {
+    currentVideo.muted = !currentVideo.muted
+    button.innerHTML = currentVideo.muted 
+      ? '<i class="fas fa-volume-mute"></i> Silenciado' 
+      : '<i class="fas fa-volume-up"></i> Sonido'
+  }
+}
+
 // SIGUIENTE
-function nextImage() {
+function nextMedia() {
+  // Detener video actual si existe
+  if (currentVideo) {
+    currentVideo.pause()
+    currentVideo = null
+  }
+  
   currentIndex = (currentIndex + 1) % images.length
-  changeMainImage(currentIndex)
+  changeMainMedia(currentIndex)
 }
 
 // ANTERIOR
-function prevImage() {
+function prevMedia() {
+  // Detener video actual si existe
+  if (currentVideo) {
+    currentVideo.pause()
+    currentVideo = null
+  }
+  
   currentIndex = (currentIndex - 1 + images.length) % images.length
-  changeMainImage(currentIndex)
+  changeMainMedia(currentIndex)
 }
 
-// AUTO SLIDE
+// AUTO SLIDE (solo para imágenes)
 function startAutoSlide() {
   stopAutoSlide()
-  autoSlideInterval = setInterval(nextImage, 5000)
+  autoSlideInterval = setInterval(() => {
+    // Solo avanzar si el medio actual no es un video
+    const currentItem = images[currentIndex]
+    if (currentItem && getMediaType(currentItem) === 'image') {
+      nextMedia()
+    }
+  }, 5000)
 }
+
 function stopAutoSlide() {
   if (autoSlideInterval) clearInterval(autoSlideInterval)
 }
@@ -251,42 +389,55 @@ if (!carId) {
     .then(res => res.ok ? res.json() : Promise.reject())
     .then(car => {
       images = Array.isArray(car.images) ? car.images : []
-      if (images.length === 0) images = [{ url: '/img/placeholder.jpg' }]
+      if (images.length === 0) images = [{ url: '/img/placeholder.jpg', mediaType: 'IMAGE' }]
 
       const primaryImg = images.find(i => i.isPrimary)?.url || images[0].url
+      const primaryItem = images.find(i => i.isPrimary) || images[0]
+      const isVideoPrimary = getMediaType(primaryItem) === 'video'
 
       // === GALERÍA CON SLIDER AUTOMÁTICO Y BOTONES FUNCIONALES ===
-      document.getElementById('car-detail').innerHTML = `
+      let galleryHTML = `
         <div class="card-vehicle-detail1" 
-             style="background-image:url('http://54.205.241.136${primaryImg}');
+             style="${isVideoPrimary ? '' : `background-image:url('http://54.205.241.136${primaryImg}');`}
                     background-size:cover; background-position:center; 
                     height:520px; border-radius:16px; position:relative;
                     transition:background-image 0.6s ease-in-out;">
           ${car.isFeatured ? '<button class="card-btn-badge hover-bright">Destacado</button>' : ''}
-          
-          <div class="card-row-bottom">
-            <div class="circle-button circle-btn1 hover-bright" onclick="prevImage()" style="cursor:pointer;">
-              <object data="../assets/circle-button/circle-button-icon3.svg"></object>
-            </div>
-            <div class="circle-button circle-btn2 hover-bright" onclick="nextImage()" style="cursor:pointer;">
-              <object data="../assets/circle-button/circle-button-icon4.svg"></object>
-            </div>
-          </div>
         </div>
 
         <div class="card-vehicle-detail2" style="margin-top:20px; display:flex; gap:12px; overflow-x:auto; padding:10px 0;">
-          ${images.map((img, i) => `
-            <img src="http://54.205.241.136${img.url}" 
-                 class="card-button card-btn${i+1} thumbnail"
-                 style="width:120px; height:80px; object-fit:cover; border-radius:12px; cursor:pointer; 
-                        border:${i===0?'4px solid #dc2626':'2px solid #ddd'}; 
-                        transition:all 0.3s; flex-shrink:0;"
-                 onclick="changeMainImage(${i})">
-          `).join('')}
+          ${images.map((img, i) => {
+            const isVideo = getMediaType(img) === 'video'
+            const thumbUrl = isVideo ? getVideoThumbnail(img) : 'http://54.205.241.136' + img.url
+            
+            return `
+              <img src="${thumbUrl}" 
+                   class="card-button card-btn${i+1} thumbnail ${isVideo ? 'video-thumb' : ''}"
+                   style="width:120px; height:80px; object-fit:cover; border-radius:12px; cursor:pointer; 
+                          border:${i===0?'4px solid #dc2626':'2px solid #ddd'}; 
+                          transition:all 0.3s; flex-shrink:0;"
+                   onclick="changeMainMedia(${i})"
+                   onerror="this.src='../img/placeholder.jpg'">
+            `
+          }).join('')}
         </div>
+
+        <div class="card-row-bottom">
+            <div class="circle-button circle-btn1 hover-bright" onclick="prevMedia()" style="cursor:pointer;">
+            </div>
+            <div class="circle-button circle-btn2 hover-bright" onclick="nextMedia()" style="cursor:pointer;">
+            </div>
+          </div>
       `
 
-      // === DESCRIPCIÓN + ESPECIFICACIONES (tu diseño original) ===
+      document.getElementById('car-detail').innerHTML = galleryHTML
+
+      // Si el medio principal es video, cargarlo
+      if (isVideoPrimary) {
+        changeMainMedia(0)
+      }
+
+      // === DESCRIPCIÓN + ESPECIFICACIONES (diseño original) ===
       document.getElementById('car-info').innerHTML = `
         <div class="app-container4">
           <h2 class="app-subtitle1">Descripción</h2>
@@ -369,7 +520,7 @@ if (!carId) {
         </div>
       `
 
-      // === SIDEBAR DERECHO ===
+      // === SIDEBAR DERECHO (diseño original) ===
       document.getElementById('car-sidebar').innerHTML = `
         <div class="card-vehicle-detail4">
           <h2 class="card-subtitle3">${car.title}</h2>
@@ -383,7 +534,7 @@ if (!carId) {
         <div class="card-vehicle-detail6">
           <p class="card-text-heading">Financiamiento Disponible</p>
           <p class="card-text-paragraph5 text-blue">
-            Obtén aprobación de crédito instantánea con nuestras opciones de financiamiento flexibles.
+            Obtén aprobación de crédito instantánea con nuestras Términos y Condiciones flexibles. ¡Maneja hoy mismo!
           </p>
           <p class="card-text-btn text1">Más Información →</p>
         </div>
@@ -394,13 +545,24 @@ if (!carId) {
         </div>
       `
 
-      // INICIAR SLIDER AUTOMÁTICO
+      // INICIAR SLIDER AUTOMÁTICO (solo para imágenes)
       startAutoSlide()
 
       // PAUSAR AL HACER HOVER EN LA GALERÍA
       const gallery = document.getElementById('car-detail')
-      gallery.addEventListener('mouseenter', stopAutoSlide)
-      gallery.addEventListener('mouseleave', startAutoSlide)
+      gallery.addEventListener('mouseenter', () => {
+        stopAutoSlide()
+        if (currentVideo) {
+          currentVideo.pause()
+        }
+      })
+      
+      gallery.addEventListener('mouseleave', () => {
+        startAutoSlide()
+        if (currentVideo && currentVideo.paused) {
+          currentVideo.play().catch(e => console.log('Autoplay bloqueado'))
+        }
+      })
 
     })
     .catch(err => {
@@ -446,5 +608,4 @@ if (!carId) {
   });
 </script>
 </body>
-
 </html>
