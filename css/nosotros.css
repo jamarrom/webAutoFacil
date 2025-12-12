@@ -147,6 +147,8 @@ body {
     }
     .header-container {
         align-items: center;
+		justify-content: space-between;
+		padding: 16px 0px !important;
     }
     .header-nav .nav-list {
         order: 3;
@@ -156,6 +158,9 @@ body {
     .header-right {
         order: 2;
     }
+	.header-right {
+	    margin: 0px auto;
+	}
 }
 
 .app {

@@ -228,14 +228,14 @@ async function loadContactInfo() {
         <div class="container-circle1 circle-blue"><object data="../assets/circle-container/container-icon1.svg"></object></div>
         <div class="container-container1">
           <p class="container-text-heading1">Visítanos</p>
-          <div class="container-paragraph1">${data.address.map(l => `<p class="text">${l}</p>`).join('')}</div>
+          <div class="container-paragraph1">${data.address.map((l, p) => `<p class="text"><a href="${p===0?'https://www.google.com/maps/place/Auto+F%C3%A1cil/@17.9886663,-92.9302648,17z/data=!3m1!4b1!4m6!3m5!1s0x85edd82fdf4fd289:0x183cefa580c5c577!8m2!3d17.9886612!4d-92.9276899!16s%2Fg%2F11b7llyv5k!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D':'https://www.google.com/maps/place/Plaza+Paty/@17.9661531,-92.9544807,17z/data=!3m2!4b1!5s0x85edd76d7cefb4ad:0xcaa162cbfcfc69f!4m6!3m5!1s0x85edd76e0488ed35:0x37c710471df9edf0!8m2!3d17.966148!4d-92.9519058!16s%2Fg%2F12lt2zwx3!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'}" target="_blank">${l}</a></p>`).join('')}</div>
         </div>
       </div>
       <div class="container-b container2">
         <div class="container-circle2 circle-blue"><object data="../assets/circle-container/container-icon2.svg"></object></div>
         <div class="container-container2">
           <p class="container-text-heading2">Llámanos</p>
-          <div class="container-paragraph2">${data.phones.map(p => `<p class="text">${p}</p>`).join('')}</div>
+          <div class="container-paragraph2">${data.phones.map(l => `<p class="text"><a href="tel:${l}">${l}</a></p>`).join('')}</div>
         </div>
       </div>
       <div class="container-b container3">
@@ -254,8 +254,12 @@ async function loadContactInfo() {
       </div>
     `;
 
-    document.getElementById('footer-address').textContent = data.address[0] +"" + data.address[1]  || 'Dirección no disponible';
-    document.getElementById('footer-phone').textContent = data.phones[0] || 'Teléfono no disponible';
+    document.getElementById('footer-address').innerHTML =
+  (data.address && data.address.length > 0)
+    ? `<a href="https://www.google.com/maps/place/Auto+F%C3%A1cil/@17.9886612,-92.9276899,17z/data=!3m1!4b1!4m6!3m5!1s0x85edd82fdf4fd289:0x183cefa580c5c577!8m2!3d17.9886612!4d-92.9276899!16s%2Fg%2F11b7llyv5k!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank">${data.address[0]}</a>
+       ${data.address[1] ? `<a href="https://www.google.com/maps/place/Plaza+Paty/@17.966148,-92.9519058,17z/data=!3m2!4b1!5s0x85edd76d7cefb4ad:0xcaa162cbfcfc69f!4m6!3m5!1s0x85edd76e0488ed35:0x37c710471df9edf0!8m2!3d17.966148!4d-92.9519058!16s%2Fg%2F12lt2zwx3!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank">${data.address[1]}</a>` : ''}`
+    : 'Dirección no disponible';
+    document.getElementById('footer-phone').innerHTML = ("<a href='tel:"+data.phones[0]+"'>"+data.phones[0]+"</a><a href='tel:"+data.phones[1]+"'>"+data.phones[1]+"</a>") || 'Teléfono no disponible';
     document.getElementById('footer-email').textContent = data.emails[0] || 'info@autofacil.com.mx';
     document.getElementById('footer-email').parentElement.href = 'mailto:' + (data.emails[0] || 'info@autofacil.com.mx');
 

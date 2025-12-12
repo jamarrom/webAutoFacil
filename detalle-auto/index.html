@@ -181,14 +181,14 @@
 						<h3 class="footer-heading">Contáctanos</h3>
 						<ul class="footer-contact">
 							<li>
-								<object data="../../assets/app-icon.svg" type="image/svg+xml"></object>
-								<span>Av. Paseo Tabasco esq. 27 de Febrero, Nueva Villahermosa, 86070.<br />
-Periférico 1408, Tamulté de las Barrancas, 86150.<br />
-Villahermosa, Tabasco.</span>
+                  <object data="../assets/app-icon.svg" type="image/svg+xml"></object>
+                  <span><a href="https://www.google.com/maps/place/Auto+F%C3%A1cil/@17.9886663,-92.9302648,17z/data=!3m1!4b1!4m6!3m5!1s0x85edd82fdf4fd289:0x183cefa580c5c577!8m2!3d17.9886612!4d-92.9276899!16s%2Fg%2F11b7llyv5k!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank">Paseo Tabasco esq. 27 de Febrero, Nueva Villahermosa, 86070.</a><br />
+                  <a href="https://www.google.com/maps/place/Plaza+Paty/@17.9661531,-92.9544807,17z/data=!3m2!4b1!5s0x85edd76d7cefb4ad:0xcaa162cbfcfc69f!4m6!3m5!1s0x85edd76e0488ed35:0x37c710471df9edf0!8m2!3d17.966148!4d-92.9519058!16s%2Fg%2F12lt2zwx3!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank">Periférico 1408, Tamulté de las Barrancas, 86150.<br />
+                  Villahermosa, Tabasco.</span></a>
 							</li>
 							<li>
 								<object data="../../assets/list-item/list-item-icon1.svg" type="image/svg+xml"></object>
-								<span>+52 (55) 1234-5678</span>
+								<span><a href="tel:+525512345678"></a>+52 (55) 1234-5678</a></span>
 							</li>
 							<li>
 								<a href="mailto: info@autofacil.com.mx">
@@ -411,14 +411,29 @@ if (!carId) {
             const thumbUrl = isVideo ? getVideoThumbnail(img) : 'http://54.205.241.136' + img.url
             
             return `
+            <div style="position:relative;">
               <img src="${thumbUrl}" 
                    class="card-button card-btn${i+1} thumbnail ${isVideo ? 'video-thumb' : ''}"
                    style="width:120px; height:80px; object-fit:cover; border-radius:12px; cursor:pointer; 
                           border:${i===0?'4px solid #dc2626':'2px solid #ddd'}; 
                           transition:all 0.3s; flex-shrink:0;"
                    onclick="changeMainMedia(${i})"
-                   onerror="this.src='../img/placeholder.jpg'">
+                   onerror="this.src='../img/placeholder.jpg'">` +
+                   (isVideo ? `
+
+
+                   <div class="play-icon" 
+                      style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);
+                              width:32px; height:32px; background:rgba(0,0,0,0.6); border-radius:50%;
+                              display:flex; align-items:center; justify-content:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                        fill="white" width="20" height="20">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>` : '') + `
+            </div>
             `
+            
           }).join('')}
         </div>
 

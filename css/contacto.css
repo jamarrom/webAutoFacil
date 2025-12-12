@@ -1093,6 +1093,15 @@ body.menu-open { overflow: hidden; }
   .app-text { font-size: 1.1rem !important; }
   .app-container2 { margin: 0 20px; }
   #map { height: 380px; }
+
+    .header-container {
+        align-items: center;
+		  justify-content: space-between;
+		  padding: 16px 0px !important;
+    }
+    .header-right {
+	    margin: 0px auto;
+	  }
 }
 
 @media (max-width: 480px) {
