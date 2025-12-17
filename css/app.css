@@ -183,6 +183,7 @@
 }
 
 .nav-link {
+	display: inline-block;
     color: #64748B;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
