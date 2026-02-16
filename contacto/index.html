@@ -218,7 +218,7 @@ let carInfo = null;
 // Cargar información de contacto + mapa
 async function loadContactInfo() {
   try {
-    const res = await fetch('http://54.205.241.136/api/public/contact');
+    const res = await fetch('https://admin.autofacil.online/api/public/contact');
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     
     const data = await res.json();
@@ -287,7 +287,7 @@ async function loadCarIfNeeded() {
   if (!carId) return;
 
   try {
-    const res = await fetch(`http://54.205.241.136/api/public/car/${carId}`);
+    const res = await fetch(`https://admin.autofacil.online/api/public/car/${carId}`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     
     carInfo = await res.json();

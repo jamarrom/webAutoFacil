@@ -380,8 +380,8 @@
 				// ========================================
 				// 1. CONFIGURACIÓN INICIAL Y VARIABLES
 				// ========================================
-				const API_HERO_SLIDER = 'http://54.205.241.136/api/public/slider/home'
-				const API_URL = 'http://54.205.241.136/api/public/cars?limit=6';
+				const API_HERO_SLIDER = 'https://admin.autofacil.online/api/public/slider/home'
+				const API_URL = 'https://admin.autofacil.online/api/public/cars?limit=6';
 				let allCars = [];
 				let currentFilteredCars = [];
 				
@@ -727,7 +727,7 @@
 				// ========================================
 				async function loadFeaturedCars() {
 					try {
-						const res = await fetch('http://54.205.241.136/api/public/cars/featured');
+						const res = await fetch('https://admin.autofacil.online/api/public/cars/featured');
 						const data = await res.json();
 						const cars = data.cars || [];
 						
