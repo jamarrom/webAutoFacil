@@ -528,7 +528,7 @@
 							data-fuel="${car.fuelTypeNormalized}"
 							data-type="${car.type}"
 							data-id="${car.id}">
-							<div onclick="window.location.href='detalle-auto/?id=${car.id}'" class="car-image" style="background-image: url('http://54.205.241.136${car.primaryImage || '/img/placeholder.jpg'}')">
+							<div onclick="window.location.href='detalle-auto/?id=${car.id}'" class="car-image" style="background-image: url('https://admin.autofacil.online${car.primaryImage || '/img/placeholder.jpg'}')">
 								${car.isFeatured ? '<span class="badge">Destacado</span>' : ''}
 							</div>
 							<div class="car-info">
@@ -742,7 +742,7 @@
 						
 						// Renderizar tarjetas MANTENIENDO DISEÑO ORIGINAL
 						container.innerHTML = cars.map(car => `
-							<a href="detalle-auto/?id=${car.id}" class="card5" style="background-image: url('http://54.205.241.136${car.primaryImage || '/img/placeholder.jpg'}');">
+							<a href="detalle-auto/?id=${car.id}" class="card5" style="background-image: url('https://admin.autofacil.online${car.primaryImage || '/img/placeholder.jpg'}');">
 								<button class="btn-badge card-btn-badge2 hover-bright">Destacado</button>
 								<h2 class="card-subtitle3 subtitle">${car.title || `${car.brand} ${car.model}`}</h2>
 								<p class="card-text-paragraph3 text1">${car.year}</p>
@@ -907,13 +907,13 @@
 						const slidesHTML = slides.map((slide, i) => {
 							const hasVideo = slide.videoUrl && slide.videoUrl.trim() !== '';
 							const mediaUrl = hasVideo 
-								? `http://54.205.241.136${slide.videoUrl}` 
-								: `http://54.205.241.136${slide.imageUrl}`;
+								? `https://admin.autofacil.online${slide.videoUrl}` 
+								: `https://admin.autofacil.online${slide.imageUrl}`;
 
 							return `
 							<div class="hero-slide ${i === 0 ? 'active' : ''}">
 								${hasVideo ? `
-									<video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="http://54.205.241.136${slide.thumbnailUrl || ''}">
+									<video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://admin.autofacil.online${slide.thumbnailUrl || ''}">
 										<source src="${mediaUrl}" type="video/mp4">
 									</video>
 								` : `

@@ -235,8 +235,8 @@ function getMediaType(item) {
 
 // OBTENER THUMBNAIL PARA VIDEO
 function getVideoThumbnail(item) {
-  if (item.thumbnailUrl) return 'http://54.205.241.136' + item.thumbnailUrl
-  return 'http://54.205.241.136' + item.url.replace('.mp4', '.jpg').replace('.mov', '.jpg')
+  if (item.thumbnailUrl) return 'https://admin.autofacil.online' + item.thumbnailUrl
+  return 'https://admin.autofacil.online' + item.url.replace('.mp4', '.jpg').replace('.mov', '.jpg')
 }
 
 // CAMBIAR MEDIO PRINCIPAL
@@ -260,7 +260,7 @@ function changeMainMedia(index) {
   if (mediaType === 'video') {
     // Crear elemento de video
     const video = document.createElement('video')
-    video.src = 'http://54.205.241.136' + item.url
+    video.src = 'https://admin.autofacil.online' + item.url
     video.className = 'main-video'
     video.autoplay = true
     video.loop = true
@@ -294,7 +294,7 @@ function changeMainMedia(index) {
     
   } else {
     // Usar imagen como background (como estaba originalmente)
-    const imgUrl = 'http://54.205.241.136' + item.url
+    const imgUrl = 'https://admin.autofacil.online' + item.url
     mainContainer.style.backgroundImage = `url('${imgUrl}')`
     mainContainer.style.backgroundSize = 'cover'
     mainContainer.style.backgroundPosition = 'center'
@@ -398,7 +398,7 @@ if (!carId) {
       // === GALERÍA CON SLIDER AUTOMÁTICO Y BOTONES FUNCIONALES ===
       let galleryHTML = `
         <div class="card-vehicle-detail1" 
-             style="${isVideoPrimary ? '' : `background-image:url('http://54.205.241.136${primaryImg}');`}
+             style="${isVideoPrimary ? '' : `background-image:url('https://admin.autofacil.online${primaryImg}');`}
                     background-size:cover; background-position:center; 
                     height:520px; border-radius:16px; position:relative;
                     transition:background-image 0.6s ease-in-out;">
@@ -408,7 +408,7 @@ if (!carId) {
         <div class="card-vehicle-detail2" style="margin-top:20px; display:flex; gap:12px; overflow-x:auto; padding:10px 0;">
           ${images.map((img, i) => {
             const isVideo = getMediaType(img) === 'video'
-            const thumbUrl = isVideo ? getVideoThumbnail(img) : 'http://54.205.241.136' + img.url
+            const thumbUrl = isVideo ? getVideoThumbnail(img) : 'https://admin.autofacil.online' + img.url
             
             return `
             <div style="position:relative;">
